@@ -1,0 +1,553 @@
+Bardet, Romain	9	30	 France	68	625p			93	438p		-	43	7.136	 
+Bidard, François	5	28	 France	758	40p			888	31p		-	52	7.849	
+Bouchard, Geoffrey	2	28	 France	474	87p			600	58p		-	52	8.538	
+Champoussin, Clément	1	22	 France	276	177p			431	86p		-	30	4.962	
+Chevrier, Clément	4	28	 France	1156	16p			768	40p		-	21	3.296	
+Chérel, Mikaël	10	34	 France	349	132p			532	68p		-	49	8.030	
+Cosnefroy, Benoit	4	25	 France	34	933p			30	1038p		3	52	8.486	
+Dillier, Silvan	3	30	 Switzerland	239	208p			305	124p		-	31	4.747	
+Domont, Axel	8	30	 France						-	24	3.984	
+Duval, Julien	4	30	 France	1760	4p			1042	23p		-	26	4.493	
+Frank, Mathias	4	33	 Switzerland	1301	12p			1084	20p		-	19	3.169	
+Gallopin, Tony	3	32	 France	681	49p			1465	9p		-	26	3.994	
+Gastauer, Ben	11	33	 Luxembourg	1419	9p			992	25p		-	33	5.219	
+Geniez, Alexandre	4	32	 France	1760	4p			1731	3p		-	15	2.241	
+Godon, Dorian	2	24	 France	167	287p			213	180p		1	47	7.700	
+Gougeard, Alexis	7	27	 France	406	106p			523	69p		-	40	6.000	
+Hänninen, Jaakko	2	23	 Finland	459	90p			577	60p		-	42	6.795	
+Jauregui, Quentin	6	26	 France	469	88p			868	33p		-	35	5.795	
+Jullien, Anthony | Stagista	-	22	 France	1219	14p			1314	13p		-	7	1.045	
+Latour, Pierre	6	27	 France	397	110p			563	63p		-	36	5.735	
+Naesen, Lawrence	1	28	 Belgium	284	171p			275	137p		-	32	5.482	
+Naesen, Oliver	4	30	 Belgium	77	580p			104	411p		-	52	8.726	  
+Paret-Peintre, Aurélien	3	24	 France	115	429p			156	256p		-	53	8.084	
+Peters, Nans	4	26	 France	198	242p			188	197p		1	62	9.866	
+Raugel, Antoine | Stagista	-	21	 France						-	3	585	
+Tanfield, Harry	1	26	 Great Britain	927	27p					-	27	4.305	
+Vandenbergh, Stijn	5	36	 Belgium				1381	10p		-	22	3.976	
+Vendrame, Andrea	1	26	 Italy	60	693p			74	532p		-	54	9.201	
+Venturini, Clément	3	27	 France	85	545p			131	315p		-	49	7.697	
+Verger, Simon | Stagista	-	22	 France						-	4	624	
+Vuillermoz, Alexis	7	32	 France	416	103p			628	54p		-	30	4.839	
+Warbasse, Lawrence	2	30	 USA	215	232p			323	116p		-	45	7.463	
+Aranburu, Alex	1	25	 Spain	101	486p			105	410p		-	42	7.236	
+Bizhigitov, Zhandos	4	29	 Kazakhstan	2099	1p					-	26	3.928	
+Boaro, Manuele	2	33	 Italy	435	96p			711	45p		-	39	6.395	
+Bohorquez, Hernando	2	28	 Colombia	1156	16p			1478	8p		-	24	3.732	
+Contreras, Rodrigo	2	26	 Colombia	1192	15p			1208	15p		-	42	6.720	
+De Vreese, Laurens	6	32	 Belgium	1964	2p			1585	5p		-	27	4.243	
+Felline, Fabio	1	30	 Italy	155	309p			188	197p		1	45	7.208	  
+Fominykh, Danill	7	29	 Kazakhstan	1760	4p					-	28	4.228	
+Fraile, Omar	3	30	 Spain	194	247p			261	146p		-	65	10.999	
+Fuglsang, Jakob	8	35	 Denmark	4	1650p			5	1961p		4	43	7.120	  
+Gidich, Yevgeniy	3	24	 Kazakhstan	611	59p			1478	8p		-	29	4.571	
+Gregaard, Jonas	2	24	 Denmark	699	47p			895	30p		-	47	7.607	
+Gruzdev, Dmitriy	9	34	 Kazakhstan						-	40	5.881	
+Houle, Hugo	3	30	 Canada	260	189p			338	110p		-	44	7.613	
+Izagirre, Gorka	2	33	 Spain	108	465p			82	498p		1	61	10.236	
+Izagirre, Ion	2	31	 Spain	109	462p			125	333p		1	45	7.408	  
+Kudus, Merhawi	2	26	 Eritrea	372	122p			535	67p		-	45	7.596	
+Lopez, Miguel Angel	6	26	 Colombia	35	931p			41	925p		2	37	6.222	
+Lutsenko, Alexey	8	28	 Kazakhstan	97	506p			75	531p		1	37	6.257	
+Martinelli, Davide	1	27	 Italy	664	51p			1585	5p		-	27	4.236	
+Natarov, Yuriy	2	23	 Kazakhstan	1597	6p			1314	13p		-	30	4.972	
+Pronskiy, Vadim	1	22	 Kazakhstan	611	59p			768	40p		-	19	2.891	
+Rodriguez, Oscar	1	25	 Spain	267	184p			338	110p		-	50	8.062	
+Stalnov, Nikita	4	29	 Kazakhstan	491	81p			653	50p		-	26	4.083	
+Sánchez, Luis León	6	36	 Spain	341	137p			179	212p		2	68	11.341	  
+Tejada, Harold	1	23	 Colombia	469	88p			502	73p		-	33	5.593	
+Vlasov, Aleksander	1	24	 Russia	10	1414p			12	1399p		3	39	6.393	 
+Zakharov, Artyom	5	29	 Kazakhstan	1419	9p			1357	11p		-	6	935	
+Arashiro, Yukiya	4	36	 Japan	629	56p			572	61p		-	49	8.020	
+Battaglin, Enrico	1	31	 Italy	198	242p			272	138p		-	40	6.683	
+Bauhaus, Phil	2	26	 Germany	172	279p			232	164p		3	20	3.367	
+Bilbao, Pello	1	30	 Spain	29	970p			55	685p		1	71	11.214	 
+Bole, Grega	4	35	 Slovenia	767	39p			1357	11p		-	24	3.640	
+Buitrago, Santiago	1	21	 Colombia	459	90p			577	60p		-	44	7.040	
+Capecchi, Eros	1	34	 Italy	819	35p			1381	10p		-	38	6.075	
+Caruso, Damiano	2	33	 Italy	72	593p			92	448p		1	45	7.535	
+Cavendish, Mark	1	35	 Great Britain	687	48p					-	34	5.446	 
+Colbrelli, Sonny	4	30	 Italy	131	367p			106	400p		1	46	7.756	  
+Davies, Scott	1	25	 Great Britain	2099	1p					-	32	5.237	
+Feng, Chun Kai	4	32	 Taiwan	819	35p			544	65p		-	6	836	
+Garcia, Ivan	4	25	 Spain	171	283p			136	304p		1	32	5.182	
+Haller, Marco	1	29	 Austria	297	160p			400	95p		-	46	7.630	
+Haussler, Heinrich	4	36	 Australia	406	106p			513	70p		-	39	6.077	 
+Inkelaar, Kevin	1	23	 Netherlands	590	62p			1314	13p		-	40	6.894	
+Landa, Mikel	1	30	 Spain	25	1037p			39	950p		-	39	6.403	
+Mohoric, Matej	3	26	 Slovenia	157	304p			86	471p		-	43	7.189	
+Novak, Domen	4	25	 Slovenia	940	26p			633	53p		-	43	6.759	
+Padun, Mark	3	24	 Ukraine	553	68p			768	40p		-	33	5.273	
+Pernsteiner, Hermann	3	30	 Austria	98	497p			121	348p		-	48	7.771	
+Pibernik, Luka	4	27	 Slovenia	2099	1p			1208	15p		-	20	3.219	
+Poels, Wout	1	33	 Netherlands	69	614p			91	456p		-	57	9.572	 
+Sieberg, Marcel	2	38	 Germany						-	23	3.609	 
+Teuns, Dylan	2	28	 Belgium	92	516p			88	460p		1	36	6.244	  
+Tratnik, Jan	2	30	 Slovenia	165	290p			252	148p		1	46	7.006	
+Valls, Rafael	1	33	 Spain	577	64p			841	35p		-	17	2.808	
+Williams, Stephen	2	24	 Great Britain						-	14	2.475	
+Wright, Fred	1	21	 Great Britain	544	69p			1042	23p		-	43	6.987	
+Ackermann, Pascal	4	26	 Germany	20	1136p			19	1248p		8	56	8.703	
+Baska, Erik	4	26	 Slovakia	567	65p			419	90p		-	11	1.769	
+Benedetti, Cesare	11	33	 Italy	1334	11p			982	26p		-	37	6.067	
+Bodnar, Maciej	4	35	 Poland	832	34p			895	30p		-	43	6.655	
+Buchmann, Emanuel	6	28	 Germany	178	271p			209	185p		1	29	4.821	 
+Burghardt, Marcus	4	37	 Germany	1156	16p			632	53p		-	17	2.979	
+Drucker, Jempy	2	34	 Luxembourg	137	355p			112	362p		-	35	5.396	 
+Fabbro, Matteo	1	25	 Italy	256	195p			379	102p		-	44	7.087	
+Gamper, Patrick	1	23	 Austria	1521	7p			894	30p		-	23	3.401	
+Gatto, Oscar	2	35	 Italy	940	26p			992	25p		-	14	2.085	 
+Großschartner, Felix	3	26	 Austria	66	677p			111	366p		1	66	10.862	
+Konrad, Patrick	6	29	 Austria	48	798p			68	575p		-	53	8.420	
+Kämna, Lennard	1	24	 Germany	63	682p			66	595p		2	46	7.717	
+Laas, Martin	1	27	 Estonia	329	144p			759	41p		2	49	7.560	
+Majka, Rafal	4	31	 Poland	30	968p			47	835p		-	47	7.752	 
+McCarthy, Jay	4	28	 Australia	411	105p			232	164p		-	27	4.243	
+Muhlberger, Gregor	5	26	 Austria	130	368p			116	352p		3	29	4.662	
+Oss, Daniel	3	33	 Italy	758	40p			1177	18p		-	39	6.715	
+Poljanski, Pawel	4	30	 Poland	646	54p			868	33p		-	39	6.271	
+Pöstlberger, Lukas	5	28	 Austria	774	38p			742	43p		-	38	6.704	
+Sagan, Juraj	4	31	 Slovakia	940	26p			299	125p		-	26	4.024	
+Sagan, Peter	4	30	 Slovakia	19	1142p			45	860p		1	61	9.960	  
+Schachmann, Maximilian	2	26	 Germany	21	1116p			14	1370p		2	42	7.164	 
+Schelling, Ide	1	22	 Netherlands	386	114p			863	34p		-	39	6.552	
+Schillinger, Andreas	11	37	 Germany	1597	6p			1731	3p		-	51	7.919	
+Schwarzmann, Michael	11	29	 Germany	603	60p			805	38p		-	54	8.271	
+Selig, Rüdiger	5	31	 Germany	858	32p					-	45	7.051	
+Barta, William	2	24	 USA	267	184p			379	102p		-	48	7.703	
+Bevin, Patrick	3	29	 New Zealand	435	96p			868	33p		-	21	3.153	
+De La Parte, Victor	2	34	 Spain	186	259p			226	170p		-	49	7.902	
+De Marchi, Alessandro	6	34	 Italy	321	148p			194	195p		-	37	6.535	
+Geschke, Simon	2	34	 Germany	71	594p			57	674p		-	48	8.141	
+Gradek, Kamil	2	30	 Poland	469	88p			600	58p		1	49	7.583	
+Hirt, Jan	1	29	 Czech Republic	553	68p			864	34p		-	55	9.193	
+Koch, Jonas	2	27	 Germany	521	74p			1478	8p		-	43	7.073	
+Kochetkov, Pavel	1	34	 Russia	1964	2p			1064	22p		-	27	4.353	
+Malecki, Kamil	1	24	 Poland	242	207p			238	158p		-	41	6.562	
+Mareczko, Jakub	2	26	 Italy	226	224p			466	79p		3	33	5.079	
+Masnada, Fausto	1	27	 Italy	60	693p			84	483p		-	48	8.148	
+Paluta, Michal	1	25	 Poland	1419	9p			2029	1p		-	40	6.380	
+Pauwels, Serge	2	37	 Belgium	711	45p			1478	8p		-	8	1.294	
+Rosskopf, Joey	6	31	 USA	164	295p			244	154p		-	47	7.521	
+Sajnok, Szymon	2	23	 Poland	397	110p			469	78p		-	27	4.422	
+Schär, Michael	11	34	 Switzerland	1377	10p			1084	20p		-	44	7.651	
+Trentin, Matteo	1	31	 Italy	77	580p			59	651p		-	48	8.268	  
+Valter, Attila	1	22	 Hungary	127	381p			147	270p		2	47	7.639	
+Van Avermaet, Greg	10	35	 Belgium	55	752p			60	650p		-	43	7.563	   
+Van Hoecke, Gijs	2	29	 Belgium	525	73p			802	39p		-	33	5.372	
+Van Hooydonck, Nathan	4	25	 Belgium	801	36p			615	55p		-	35	5.957	
+Van Keirsbulck, Guillaume	2	29	 Belgium	888	30p			1032	24p		-	30	4.840	
+Ventoso, Francisco	4	38	 Spain	979	24p			1585	5p		-	26	3.862	 
+Wisniowski, Lukasz	2	28	 Poland	521	74p			609	56p		-	51	8.349	
+Zakarin, Ilnur	1	31	 Russia	168	285p			235	162p		-	42	6.957	 
+Zimmerman, Georg	1	23	 Germany	367	124p			396	97p		-	48	8.059	
+Černý, Josef	2	27	 Czech Republic	84	550p			118	350p		3	51	7.939
+Allegaert, Piet	1	25	 Belgium	224	225p			352	108p		-	48	8.082	
+Barceló, Fernando	1	24	 Spain	561	67p			633	53p		-	33	5.111	
+Berhane, Natnael	2	29	 Eritrea				1585	5p		-	19	3.068	
+Claeys, Dimitri	4	33	 Belgium	297	160p			185	200p		-	37	6.150	
+Consonni, Simone	1	26	 Italy	242	207p			431	86p		-	60	10.056	
+Edet, Nicolas	10	33	 France	196	243p			202	190p		-	62	9.650	
+Finé, Eddy	1	23	 France	1192	15p			1731	3p		-	21	3.359	
+Haas, Nathan	1	31	 Australia	284	171p			247	151p		-	56	9.141	
+Hansen, Jesper	2	30	 Denmark	514	75p			428	87p		-	42	6.824	
+Herrada, Jesus	3	30	 Spain	98	497p			119	349p		-	40	6.832	
+Herrada, Jose	3	35	 Spain	629	56p			768	40p		-	40	6.623	
+Lafay, Victor	3	24	 France	902	29p			1523	7p		-	42	7.009	
+Laporte, Christophe	7	27	 France	329	144p			445	83p		-	34	5.580	
+Le Turnier, Mathias	4	25	 France	1219	14p			1731	3p		-	42	6.418	
+Lemoine, Cyril	7	37	 France	585	63p			753	42p		-	40	6.469	
+Martin, Guillaume	1	27	 France	6	1594p			18	1262p		-	67	10.819	 
+Mate, Luis Angel	10	36	 Spain	474	87p			768	40p		-	39	6.179	
+Mathis, Marco	2	26	 Germany	1124	17p					-	45	7.130	
+Morin, Emmanuel	2	25	 France	187	254p			318	119p		-	53	8.115	
+Perez, Anthony	5	29	 France	484	83p			805	38p		1	27	4.056	
+Prodhomme, Nicolas | Stagista	-	23	 France	1156	16p			1731	3p		-	9	1.211	
+Périchon, Pierre-Luc	2	33	 France	832	34p					-	58	9.392	
+Rossetto, Stéphane	6	33	 France	801	36p			1314	13p		-	41	6.274	
+Sabatini, Fabio	1	35	 Italy	1858	3p			1731	3p		-	27	4.477	
+Touzé, Damien	2	24	 France	297	160p			439	85p		-	26	4.055	
+Vanbilsen, Kenneth	6	30	 Belgium	2099	1p					-	30	5.242	
+Vermote, Julien	1	31	 Belgium	758	40p			700	47p		-	47	7.758	
+Viviani, Attilio	1	24	 Italy	528	72p			1084	20p		1	28	4.251	
+Viviani, Elia	1	31	 Italy	88	520p			159	254p		-	66	10.786	  
+Zanoncello, Enrico | Stagista	-	23	 Italy	1301	12p			1731	3p		-	9	1.331	
+Alaphilippe, Julian	7	28	 France	14	1277p			6	1795p		3	47	7.984	   
+Almeida, Joao	1	22	 Portugal	7	1530p			13	1370p		-	47	7.325	  
+Archbold, Shane	1	31	 New Zealand	312	152p			220	175p		1	35	5.198	
+Asgreen, Kasper	3	25	 Denmark	112	440p			58	665p		3	45	7.477	 
+Bagioli, Andrea	1	21	 Italy	93	515p			110	369p		2	37	6.178	
+Ballerini, Davide	1	26	 Italy	96	510p			90	458p		1	45	7.579	
+Bennett, Sam	1	30	 Ireland	18	1166p			34	1003p		7	67	11.154	
+Cattaneo, Mattia	1	30	 Italy	176	277p			360	107p		-	36	5.862	
+Cavagna, Remi	4	25	 France	136	357p			107	395p		2	64	10.246	
+Declercq, Tim	4	31	 Belgium	196	243p			103	415p		-	51	8.776	
+Devenyns, Dries	9	37	 Belgium	129	369p			87	466p		1	45	7.707	
+Evenepoel, Remco	2	20	 Belgium	26	1033p			20	1193p		9	22	3.477	
+Garrison, Ian	1	22	 USA	927	27p			1478	8p		-	35	5.493	
+Hodeg, Alvaro	3	24	 Colombia	175	278p			562	63p		-	48	7.443	
+Honore, Mikkel	2	23	 Denmark	172	279p			284	133p		-	38	6.418	
+Jakobsen, Fabio	3	24	 Netherlands	145	339p			114	353p		4	13	2.164	 
+Jungels, Bob	5	28	 Luxembourg	497	80p			193	195p		1	45	7.434	 
+Keisse, Iljo	11	37	 Belgium	784	37p			466	79p		-	59	9.555	
+Knox, James	3	25	 Great Britain	123	394p			164	245p		-	53	8.597	
+Lampaert, Yves	6	29	 Belgium	59	714p			21	1175p		1	36	5.745	 
+Masnada, Fausto	1	27	 Italy	60	693p			84	483p		-	48	8.148	
+Mørkøv, Michael	3	35	 Denmark	231	221p			264	145p		-	69	11.281	
+Quinn, Sean | Stagista	-	20	 USA	1074	19p			1585	5p		-	14	2.102	
+Serry, Pieter	8	32	 Belgium	467	89p			331	114p		-	50	7.976	
+Steels, Stijn	1	31	 Belgium						-	33	5.556	
+Steimle, Jannik	1	24	 Germany	147	332p			187	197p		2	45	7.445	
+Stybar, Zdenek	10	34	 Czech Republic	169	284p			130	321p		1	50	8.388	
+Sénéchal, Florian	3	27	 France	36	908p			16	1325p		1	37	6.275	
+Van Lerberghe, Bert	1	28	 Belgium	308	155p			311	122p		-	38	6.093	
+Vansevenant, Mauri	1	21	 Belgium	1964	2p			2022	2p		-	18	3.039
+Bennett, Sean	2	24	 USA	597	61p			615	55p		-	22	3.379	
+Bettiol, Alberto	5	27	 Italy	90	517p			61	649p		1	38	6.413	
+Bissegger, Stefan	1	22	 Switzerland	214	233p			183	204p		-	17	2.120	
+Caicedo, Jonathan	2	27	 Ecuador	228	223p			211	184p		1	36	6.020	
+Carthy, Hugh	4	26	 Great Britain	49	794p			48	821p		1	48	7.826	
+Clarke, Simon	5	34	 Australia	135	359p			132	308p		1	41	6.766	
+Cort, Magnus	1	27	 Denmark	134	363p			268	142p		2	35	5.751	
+Craddock, Lawson	5	28	 USA	711	45p			1522	7p		-	29	4.656	
+Docker, Mitchell	3	34	 Australia	1521	7p			1585	5p		-	33	5.246	
+Guerreiro, Ruben	1	26	 Portugal	155	309p			134	306p		1	36	5.961	
+Halvorsen, Kristoffer	1	24	 Norway	350	131p			544	65p		-	9	1.375	
+Higuita, Sergio	2	23	 Colombia	73	585p			63	602p		3	33	5.714	
+Hofland, Moreno	2	29	 Netherlands	646	54p			1540	6p		-	8	1.162	
+Howes, Alex	10	32	 USA						-	1	202	
+Kangert, Tanel	2	33	 Estonia	105	472p			97	430p		-	50	8.091	
+Keukeleire, Jens	1	32	 Belgium	368	123p			180	207p		-	39	6.570	 
+Langeveld, Sebastian	7	35	 Netherlands	1419	9p			1357	11p		-	13	2.089	 
+Martinez, Daniel	3	24	 Colombia	50	791p			35	981p		4	40	6.642	
+Morton, Lachlan	4	28	 Australia	784	37p			1731	3p		-	34	5.147	
+Owen, Logan	3	25	 USA						-	27	4.011	
+Powless, Neilson	1	24	 USA	158	302p			261	146p		-	40	6.416	
+Rutsch, Jonas	1	22	 Germany	733	43p			1585	5p		-	24	3.602	
+Scully, Thomas	4	30	 New Zealand	1334	11p			1208	15p		-	28	4.143	
+Uran, Rigoberto	5	33	 Colombia	106	471p			115	352p		-	34	5.862	  
+Van Den Berg, Julius	3	24	 Netherlands	1470	8p					-	32	4.950	
+Van Garderen, Tejay	2	32	 USA	1760	4p			2022	2p		-	53	8.601	 
+Vanmarcke, Sep	6	32	 Belgium	429	97p			398	96p		-	23	3.948	
+Villalobos, Luis	2	22	 Mexico						-	7	1.129	
+Whelan, James	2	24	 Australia	622	57p			1168	19p		-	34	5.359	
+Woods, Michael	5	34	 Canada	56	741p			42	920p		2	36	6.202	
+Armirail, Bruno	3	26	 France	312	152p			376	103p		-	53	8.473	
+Bonnet, William	10	38	 France						-	10	1.776	
+Brunel, Alexys	1	22	 France	312	152p			398	96p		1	16	2.235	
+Delage, Mickaël	14	35	 France						-	28	4.501	
+Duchesne, Antoine	3	29	 Canada				1381	10p		-	22	3.618	
+Démare, Arnaud	9	29	 France	11	1392p			9	1550p		14	50	8.009	  
+Frankiny, Kilian	2	26	 Switzerland	353	129p			535	67p		-	46	7.271	
+Gaudu, David	4	24	 France	64	680p			62	635p		2	52	8.524	
+Geniets, Kevin	2	23	 Luxembourg	337	140p			181	205p		1	32	4.752	
+Guarnieri, Jacopo	4	33	 Italy	429	97p			1478	8p		-	55	8.800	
+Guglielmi, Simon	1	23	 France	483	84p			711	45p		-	45	7.127	
+Konovalovas, Ignatas	5	34	 Lithuania				1731	3p		-	50	7.956	
+Küng, Stefan	2	27	 Switzerland	65	678p			23	1133p		3	48	7.772	 
+Ladagnous, Matthieu	15	35	 France	1964	2p			1381	10p		-	53	8.834	
+Le Gac, Olivier	6	27	 France	447	93p			544	65p		-	59	9.420	
+Lienhard, Fabian	1	27	 Switzerland	454	92p			320	118p		-	32	5.506	
+Ludvigsson, Tobias	4	29	 Sweden	673	50p			829	36p		-	36	5.577	
+Madouas, Valentin	3	24	 France	94	513p			100	426p		-	43	7.116	
+Molard, Rudy	4	31	 France	111	444p			99	428p		-	47	8.010	
+Pinot, Thibaut	11	30	 France	39	849p			44	863p		-	46	7.571	 
+Reichenbach, Sebastien	5	31	 Switzerland	151	318p			271	141p		-	34	5.683	
+Roux, Anthony	13	33	 France	353	129p			326	115p		-	48	7.838	
+Sarreau, Marc	6	27	 France	323	147p			459	80p		-	15	2.306	
+Scotson, Miles	2	26	 Australia	577	64p			1208	15p		-	47	7.365	
+Seigle, Romain	3	26	 France	611	59p			563	63p		-	16	2.949	
+Sinkeldam, Ramon	3	31	 Netherlands	1597	6p			1478	8p		-	35	5.703	
+Thomas, Benjamin	3	25	 France	382	116p			445	83p		-	28	3.856	
+Vincent, Léo	4	25	 France	1301	12p			1731	3p		-	18	2.849	
+Amador, Andrey	1	34	 Costa Rica	774	38p			1208	15p		-	51	8.380	
+Basso, Leonardo	3	26	 Italy	1521	7p			2189	0p		-	17	2.655	
+Bernal, Egan	3	23	 Colombia	46	808p			101	425p		2	33	5.597	
+Carapaz, Richard	1	27	 Ecuador	5	1601p			11	1421p		1	55	9.239	 
+Castroviejo, Jonathan	3	33	 Spain	249	204p			428	87p		-	56	9.275	
+Dennis, Rohan	1	30	 Australia	95	512p			72	550p		-	47	7.271	
+Doull, Owain	4	27	 Great Britain	457	91p			478	77p		1	28	4.416	
+Dunbar, Edward	3	24	 Ireland	183	267p			167	241p		-	24	4.138	
+Froome, Chris	11	35	 Great Britain	2316	0p					-	43	7.008	 
+Ganna, Filippo	2	24	 Italy	45	812p			28	1068p		7	46	7.244	
+Geoghegan Hart, Tao	4	25	 Great Britain	23	1094p			17	1292p		3	40	6.480	
+Golas, Michal	5	36	 Poland	1681	5p			768	40p		-	29	5.183	
+Hayter, Ethan	1	22	 Great Britain	138	354p			127	327p		1	12	2.293	
+Henao, Sebastian	7	27	 Colombia				2189	0p		-	8	1.545	
+Knees, Christian	10	39	 Germany	1964	2p			1523	7p		-	27	4.444	
+Kwiatkowski, Michal	5	30	 Poland	57	732p			38	963p		1	43	7.558	  
+Lawless, Christopher	3	25	 Great Britain	1025	21p			1585	5p		-	20	3.114	
+Moscon, Gianni	5	26	 Italy	423	98p			600	58p		-	16	2.959	
+Narvaez, Jhonnatan	2	23	 Ecuador	113	435p			124	333p		3	30	5.013	
+Puccio, Salvatore	9	31	 Italy	484	83p			628	54p		-	43	7.194	
+Rivera, Brandon	1	24	 Colombia				1083	20p		-	17	2.575	
+Rodriguez, Carlos	1	19	 Spain	1377	10p			1194	17p		-	19	3.008	
+Rowe, Luke	9	30	 Great Britain	508	76p			509	71p		-	47	7.941	
+Sivakov, Pavel	3	23	 Russia	87	532p			88	460p		-	42	6.823	
+Sosa, Ivan	2	23	 Colombia	457	91p			839	35p		1	30	4.946	
+Stannard, Ian	11	33	 Great Britain				1585	5p		-	16	2.589	
+Swift, Ben	9	33	 Great Britain	124	389p			207	186p		-	40	6.622	
+Thomas, Geraint	11	34	 Great Britain	86	542p			64	602p		-	25	3.651	  
+Van Baarle, Dylan	3	28	 Netherlands	127	381p			76	528p		-	60	10.077	
+Wurf, Cameron	1	37	 Australia						-	29	4.826	
+Badilatti, Matteo	2	28	 Switzerland	189	253p			215	178p		-	40	6.263	
+Barbier, Rudy	2	27	 France	150	319p			326	115p		2	44	6.782	
+Biermans, Jenthe	1	25	 Belgium	441	94p			615	55p		-	35	5.884	
+Boivin, Guillaume	5	31	 Canada	767	39p			829	36p		-	37	5.755	
+Brändle, Matthias	2	30	 Austria	368	123p			535	67p		1	59	9.061	
+Cataford, Alexander	2	27	 Canada	832	34p			1314	13p		-	39	6.194	
+Cimolai, Davide	2	31	 Italy	244	206p			1032	24p		-	48	8.148	
+Dowsett, Alex	1	32	 Great Britain	207	239p			188	197p		1	50	7.597	
+Einhorn, Itamar	2	23	 Israel	321	148p			431	86p		1	37	5.623	
+Goldstein, Omer	4	24	 Israel	629	56p			600	58p		1	46	7.324	
+Greipel, André	1	38	 Germany	441	94p			1208	15p		-	32	5.266	 
+Hermans, Ben	3	34	 Belgium	223	226p			226	170p		-	30	4.982	
+Hofstetter, Hugo	1	26	 France	90	517p			152	265p		1	49	7.947	 
+Hollenstein, Reto	1	35	 Switzerland				1731	3p		-	42	7.306	
+Martin, Daniel	1	34	 Ireland	24	1070p			29	1058p		1	56	9.198	 
+McCabe, Travis	1	31	 USA	758	40p					-	18	2.809	
+Navarro, Daniel	1	37	 Spain	479	85p			456	82p		-	48	7.890	
+Neilands, Krists	4	26	 Latvia	664	51p			768	40p		-	38	6.410	
+Niv, Guy	3	26	 Israel				1208	15p		-	38	6.078	
+Piccoli, James	1	29	 Canada	534	71p			572	61p		-	44	7.134	
+Politt, Nils	1	26	 Germany	317	150p			535	67p		-	50	8.161	
+Renard, Alexis	1	21	 France	534	71p			1585	5p		-	36	5.801	
+Räim, Mihkel	5	27	 Estonia	394	111p			653	50p		1	42	6.075	
+Sagiv, Guy	6	25	 Israel	1681	5p			711	45p		1	45	6.848	
+Schelling, Patrick	1	30	 Switzerland	611	59p			381	101p		-	23	3.398	
+Sutherland, Rory	1	38	 Australia						-	30	5.198	
+Vahtra, Norman	1	24	 Estonia	1470	8p			338	110p		1	28	4.145	
+Van Asbroeck, Tom	2	30	 Belgium	284	171p			408	92p		-	51	8.624	 
+Würtz Schmidt, Mads	1	26	 Denmark	375	119p			413	91p		-	25	3.822	
+Zabel, Rick	1	26	 Germany	297	160p			742	43p		-	50	8.225	
+Armee, Sander	7	34	 Belgium	198	242p			313	121p		1	56	8.848	
+Cras, Steff	1	24	 Belgium	979	24p			960	29p		-	20	3.504	
+De Buyst, Jasper	6	27	 Belgium	346	134p			400	95p		-	42	7.426	
+De Gendt, Thomas	6	34	 Belgium	276	177p			313	121p		-	66	10.551	 
+Degenkolb, John	1	31	 Germany	103	481p			67	589p		1	34	5.609	 
+Dewulf, Stan	2	22	 Belgium	254	196p			241	156p		-	34	5.866	
+Dibben, Jonathan	1	26	 Great Britain	1192	15p			1585	5p		-	45	7.116	
+Ewan, Caleb	2	26	 Australia	32	946p			36	971p		7	45	7.559	
+Frison, Frederik	5	28	 Belgium	722	44p			513	70p		-	48	8.089	
+Gilbert, Philippe	4	38	 Belgium	184	264p			161	253p		-	34	5.746	  
+Goossens, Kobe	1	24	 Belgium	539	70p			753	42p		-	37	6.063	
+Hagen, Carl Fredrik	2	29	 Norway	1011	22p			337	111p		-	47	7.693	
+Hansen, Adam	10	39	 Australia						-	42	6.679	
+Holmes, Matthew	1	26	 Great Britain	360	128p			335	112p		1	43	6.785	
+Iversen, Rasmus	2	23	 Denmark	1521	7p			1731	3p		-	10	1.359	
+Kluge, Roger	2	34	 Germany	459	90p			535	67p		-	50	8.399	
+Maes, Nikolas	4	34	 Belgium	603	60p			829	36p		-	25	4.451	
+Marczynski, Tomasz	5	36	 Poland	567	65p			711	45p		-	36	5.608	
+Mertz, Remy	4	25	 Belgium	845	33p			1177	18p		-	45	7.624	
+Oldani, Stefano	1	22	 Italy	345	135p			633	53p		-	42	6.914	
+Thijssen, Gerben	2	22	 Belgium	282	172p			285	132p		-	22	3.512	
+Van der Sande, Tosh	9	30	 Belgium	603	60p			2029	1p		-	48	7.942	
+Van Goethem, Brian	2	29	 Netherlands	832	34p			1523	7p		-	21	3.190	
+Van Moer, Brent	2	22	 Belgium				1208	15p		-	37	6.402	
+Vanhoucke, Harm	3	23	 Belgium	163	296p			338	110p		-	46	7.091	
+Vermeersch, Florian	1	21	 Belgium	198	242p			147	270p		-	21	3.248	
+Wallays, Jelle	5	31	 Belgium	819	35p			805	38p		-	14	2.256	
+Wellens, Tim	9	29	 Belgium	100	493p			77	521p		2	39	6.632	
+Affini, Edoardo	2	24	 Italy	454	92p			455	82p		-	30	4.325	
+Albasini, Michael	9	39	 Switzerland	774	38p			615	55p		-	15	2.963	
+Bauer, Jack	3	35	 New Zealand	253	198p			391	99p		-	39	6.573	
+Bewley, Sam	9	33	 New Zealand	2099	1p					-	21	3.413	
+Bookwalter, Brent	2	36	 USA	402	107p			384	100p		-	24	3.660	
+Chaves, Esteban	7	30	 Colombia	82	552p			128	327p		-	57	9.454	 
+Durbridge, Luke	9	29	 Australia	459	90p			252	148p		1	22	3.278	 
+Edmondson, Alex	5	26	 Australia	650	53p			1381	10p		-	43	7.020	
+Grmay, Tsgabu	2	29	 Ethiopia	1858	3p			1071	21p		-	37	6.464	
+Groves, Kaden	1	21	 Australia	237	210p			332	114p		2	23	3.460	
+Haig, Jack	5	27	 Australia	76	583p			96	435p		1	37	5.811	
+Hamilton, Lucas	3	24	 Australia	187	254p			162	251p		1	31	4.981	
+Hepburn, Michael	9	29	 Australia	888	30p			895	30p		-	33	5.237	
+Howson, Damien	7	28	 Australia	118	416p			138	294p		2	29	4.438	
+Impey, Daryl	9	35	 South Africa	141	348p			68	575p		1	43	7.019	
+Juul Jensen, Christopher	5	31	 Denmark						-	40	6.756	
+Konychev, Alexander	1	22	 Italy	491	81p			1071	21p		-	24	3.799	
+Meyer, Cameron	7	32	 Australia	1760	4p			338	110p		1	33	5.268	
+Mezgec, Luka	5	32	 Slovenia	62	685p			73	545p		-	42	7.291	
+Nieve, Mikel	3	36	 Spain	120	408p			174	219p		-	49	8.094	
+Peak, Barnabas	1	22	 Hungary	1760	4p			419	90p		1	17	2.759	
+Schultz, Nicholas	2	26	 Australia	368	123p			456	82p		-	36	5.974	
+Scotson, Callum	2	24	 Australia	1681	5p					-	36	5.710	
+Smith, Dion	2	27	 New Zealand	110	457p			83	491p		1	38	6.231	
+Stannard, Robert	3	22	 Australia	131	367p			159	254p		-	38	6.544	
+Yates, Adam	7	28	 Great Britain	42	829p			52	738p		2	31	5.118	 
+Yates, Simon	7	28	 Great Britain	41	835p			27	1076p		2	38	5.792	 
+Zeits, Andrey	1	33	 Kazakhstan	577	64p			895	30p		-	5	686	
+Alba, Juan Diego	1	23	 Colombia	1219	14p			1731	3p		-	17	3.047	
+Arcas, Jorge	5	28	 Spain	740	42p			895	30p		-	50	8.164	
+Betancur, Carlos	5	31	 Colombia						-	12	1.880	
+Carretero, Hector	4	25	 Spain	514	75p			700	47p		-	41	6.733	
+Cataldo, Dario	1	35	 Italy	733	43p			895	30p		-	57	9.541	
+Cullaigh, Gabriel	1	24	 Great Britain	1219	14p					-	12	1.980	
+Elosegui, Inigo	1	22	 Spain	1074	19p			1585	5p		-	25	4.155	
+Erviti, Imanol	16	37	 Spain	1097	18p			1032	24p		-	50	8.334	
+Hollmann, Juri	1	21	 Germany	1011	22p			1357	11p		-	21	3.222	
+Jacobs, Johan	1	23	 Switzerland	544	69p			295	126p		-	29	4.638	
+Jorgenson, Matteo	1	21	 USA	553	68p			532	68p		-	19	3.521	
+Mas, Enric	1	25	 Spain	17	1190p			40	926p		-	57	9.163	
+Mas, Lluis	2	31	 Spain	1047	20p			960	29p		-	27	4.112	
+Mora, Sebastian	1	32	 Spain	940	26p					-	31	4.886	
+Norsgaard, Mathias	1	23	 Denmark						-	7	1.072	
+Oliveira, Nelson	5	31	 Portugal	244	206p			215	178p		-	59	9.438	
+Pedrero, Antonio	5	29	 Spain	320	149p			592	59p		-	43	6.908	
+Prades, Eduard	2	33	 Spain	386	114p			360	107p		-	17	3.013	
+Roelandts, Jurgen	2	35	 Belgium	302	159p			300	125p		-	26	4.038	 
+Rojas, José Joaquin	14	35	 Spain	353	129p			759	41p		-	59	9.694	 
+Rubio, Einer	1	22	 Colombia	508	76p			1032	24p		-	33	5.437	
+Samitier, Sergio	1	25	 Spain	251	200p			408	92p		-	47	7.536	
+Sepulveda, Eduardo	3	29	 Argentina	979	24p			1042	23p		-	43	7.086	
+Soler, Marc	6	27	 Spain	47	802p			95	437p		2	62	10.019	  
+Torres, Albert	1	30	 Spain	565	66p					-	46	7.568	
+Valverde, Alejandro	15	40	 Spain	15	1231p			53	716p		-	65	10.747	   
+Verona, Carlos	2	28	 Spain	249	204p			305	124p		-	55	9.106	
+Villella, Davide	1	29	 Italy	334	142p			295	126p		-	42	7.015	
+Barbero, Carlos	1	29	 Spain	220	228p			295	126p		-	40	6.824	
+Battistella, Samuele	1	22	 Italy	505	77p			509	71p		-	41	7.042	
+Boasson Hagen, Edvald	6	33	 Norway	239	208p			352	108p		-	46	7.604	   
+Campenaerts, Victor	1	29	 Belgium	140	352p			153	262p		-	48	7.355	
+Carbel, Michael	1	25	 Denmark	1156	16p					-	22	3.455	
+De Bod, Stefan	2	24	 South Africa	1521	7p			742	43p		-	44	7.181	
+Dlamini, Nicholas	3	25	 South Africa						-	22	3.552	
+Dyball, Benjamin	1	31	 Australia						-	34	5.576	
+Gasparotto, Enrico	2	38	 Switzerland	1334	11p			691	48p		-	37	6.304	
+Gebreigzabhier, Amanuel	3	26	 Eritrea	553	68p			615	55p		-	42	6.920	
+Gibbons, Ryan	4	26	 South Africa	346	134p			272	138p		1	45	7.367	
+Gogl, Michael	1	27	 Austria	447	93p			268	142p		-	49	8.212	
+Iribe, Shotaro	1	31	 Japan						-	8	1.135	
+Janse Van Rensburg, Reinardt	9	31	 South Africa	159	299p			413	91p		-	54	9.004	
+King, Benjamin	4	31	 USA	774	38p			628	54p		-	19	3.144	
+Kreuziger, Roman	2	34	 Czech Republic	655	52p			711	45p		-	44	7.331	 
+Meintjes, Louis	6	28	 South Africa	256	195p			266	143p		-	53	8.491	
+Mäder, Gino	2	23	 Switzerland	234	215p			381	101p		-	33	5.429	
+Nizzolo, Giacomo	2	31	 Italy	28	994p			24	1115p		4	37	6.330	 
+O'Connor, Ben	4	25	 Australia	153	313p			188	197p		2	51	7.915	
+Pozzovivo, Domenico	1	38	 Italy	115	429p			226	170p		-	44	7.168	 
+Sobrero, Matteo	1	23	 Italy	423	98p			1084	20p		-	40	6.365	
+Stokbro, Andreas	1	23	 Denmark						-	11	1.647	
+Sunderland, Dylan	1	24	 Australia	1011	22p			1540	6p		-	53	8.244	
+Thomson, Jay Robert	10	34	 South Africa						-	17	2.340	
+Tiller, Rasmus	2	24	 Norway	1521	7p			1381	10p		-	31	5.133	
+Valgren, Michael	2	28	 Denmark	181	270p			212	181p		-	67	11.217	 
+Walscheid, Max	1	27	 Germany	177	274p			252	148p		2	56	9.175	
+Wyss, Danilo	2	35	 Switzerland	1219	14p			413	91p		-	52	8.247	
+Bennett, George	6	30	 New Zealand	31	951p			26	1100p		1	57	9.110	 
+Bouwman, Koen	5	27	 Netherlands	368	123p			570	62p		-	25	4.276	
+De Plus, Laurens	2	25	 Belgium						-	2	350	
+Dumoulin, Tom	1	30	 Netherlands	38	860p			54	700p		-	39	6.427	 
+Eenkhoorn, Pascal	3	23	 Netherlands	232	220p			240	157p		1	38	6.255	
+Foss, Tobias	1	23	 Norway	263	187p			352	108p		-	22	3.553	
+Gesink, Robert	14	34	 Netherlands	447	93p			633	53p		-	51	8.251	 
+Groenewegen, Dylan	5	27	 Netherlands	341	137p			400	95p		3	10	1.635	 
+Harper, Chris	1	26	 Australia	505	77p			513	70p		-	38	5.968	
+Hofstede, Lennard	2	25	 Netherlands	1521	7p			895	30p		-	43	6.929	
+Jansen, Amund Grøndahl	4	26	 Norway				1208	15p		-	27	4.690	
+Kruijswijk, Steven	11	33	 Netherlands	281	174p			577	60p		-	15	2.353	
+Kuss, Sepp	3	26	 USA	52	780p			117	351p		1	54	8.880	
+Leezer, Tom	13	34	 Netherlands						-	5	873	
+Lindeman, Bert-Jan	6	31	 Netherlands	615	58p			544	65p		-	26	4.133	
+Martens, Paul	13	37	 Germany						-	41	6.867	
+Martin, Tony	2	35	 Germany	1858	3p					-	42	6.818	
+Pfingsten, Christoph	1	33	 Germany	1074	19p			1381	10p		-	33	5.421	
+Roglic, Primoz	5	31	 Slovenia	1	3227p			1	4247p		12	50	8.149	  
+Roosen, Timo	6	27	 Netherlands	400	108p			219	176p		-	35	5.847	
+Teunissen, Mike	4	28	 Netherlands	213	234p			155	257p		-	14	2.221	 
+Tolhoek, Antwan	4	26	 Netherlands	258	192p			300	125p		-	29	4.721	
+Van Aert, Wout	2	26	 Belgium	3	1835p			3	2700p		6	35	5.978	   
+van der Hoorn, Taco	2	27	 Netherlands	733	43p			647	52p		-	28	4.338	
+Van Emden, Jos	13	35	 Netherlands	622	57p			768	40p		-	36	5.862	
+Vingegaard, Jonas	2	23	 Denmark	380	117p			338	110p		-	27	4.643	
+Wynants, Maarten	10	38	 Belgium	1377	10p			1381	10p		-	27	4.387	
+Andersen, Asbjørn Kragh	2	28	 Denmark	1097	18p			767	40p		-	25	3.948	
+Andersen, Søren Kragh	5	26	 Denmark	51	786p			33	1008p		4	41	6.786	 
+Arensman, Thymen	1	21	 Netherlands	339	138p			829	36p		-	31	5.004	
+Arndt, Nikias	8	29	 Germany	577	64p			868	33p		-	41	6.907	
+Benoot, Tiesj	1	26	 Belgium	79	576p			49	780p		1	36	6.402	 
+Bol, Cees	2	25	 Netherlands	142	346p			293	128p		1	37	6.269	
+Dainese, Alberto	1	22	 Italy	191	250p			369	104p		1	39	6.083	
+Denz, Nico	1	26	 Germany	178	271p			368	104p		1	52	8.511	
+Donovan, Mark	1	21	 Great Britain	479	85p			841	35p		-	29	4.860	
+Eekhoff, Nils	1	22	 Netherlands	270	182p			121	348p		-	24	3.987	
+Gall, Felix	1	22	 Austria				2184	0p		-	6	1.077	
+Haga, Chad	7	32	 USA	251	200p			365	105p		-	34	5.482	
+Hamilton, Chris	4	25	 Australia	514	75p			502	73p		-	45	7.390	
+Hindley, Jai	3	24	 Australia	16	1213p			22	1155p		4	54	8.598	
+Hirschi, Marc	2	22	 Switzerland	33	936p			10	1430p		2	35	5.994	
+Kanter, Max	2	23	 Germany	232	220p			559	64p		-	49	7.684	
+Kelderman, Wilco	4	29	 Netherlands	13	1331p			15	1328p		-	44	7.262	 
+Matthews, Michael	4	30	 Australia	54	760p			32	1022p		1	27	4.641	   
+Nieuwenhuis, Joris	2	24	 Netherlands	528	72p			280	135p		-	26	4.516	
+Oomen, Sam	5	25	 Netherlands	161	297p			316	120p		-	39	6.337	
+Pedersen, Casper	2	24	 Denmark	235	214p			171	221p		1	34	5.816	
+Power, Robert	2	25	 Australia	303	158p			318	119p		-	46	7.126	
+Roche, Nicolas	2	36	 Ireland	323	147p			242	155p		-	33	5.244	 
+Salmon, Martin	1	23	 Germany	1419	9p					-	27	4.051	
+Storer, Michael	3	23	 Australia	159	299p			378	102p		-	49	7.802	
+Stork, Florian	2	23	 Germany	845	33p			825	37p		-	26	4.141	
+Sütterlin, Jasha	1	28	 Germany	172	279p			408	92p		-	39	5.869	
+Tusveld, Martijn	3	27	 Netherlands	544	69p			978	27p		-	34	5.502	
+Van Wilder, Ilan	1	20	 Belgium	636	55p			805	38p		-	17	2.557	
+Vermaerke, Kevin | Stagista	-	20	 USA	801	36p			1208	15p		-	7	1.172	
+Bernard, Julien	5	28	 France	528	72p			802	39p		1	49	7.709	
+Brambilla, Gianluca	3	33	 Italy	182	268p			206	187p		-	34	5.862	
+Ciccone, Giulio	2	25	 Italy	143	343p			68	575p		1	27	4.949	
+Clarke, William	3	35	 Australia						-	19	3.162	
+Conci, Nicola	3	23	 Italy	239	208p			222	174p		-	45	7.738	
+De Kort, Koen	4	38	 Netherlands	1124	17p					-	45	7.333	
+Eg, Niklas	3	25	 Denmark	279	175p			456	82p		-	61	10.099	
+Elissonde, Kenny	1	29	 France	138	354p			249	150p		-	57	9.396	
+Fancellu, Alessandro | Stagista	-	20	 Italy	784	37p			513	70p		-	17	2.464	
+Kamp, Alexander	1	26	 Denmark						-	24	3.961	
+Kirsch, Alex	2	28	 Luxembourg	411	105p			268	142p		-	43	6.759	
+Liepins, Emils	1	28	 Latvia	296	162p			445	83p		-	49	7.678	
+Lopez, Juan Pedro	1	23	 Spain	1192	15p			978	27p		-	44	7.074	
+Mollema, Bauke	6	34	 Netherlands	81	557p			102	420p		-	25	4.245	 
+Mosca, Jacopo	2	27	 Italy	119	410p			129	325p		-	47	7.861	
+Moschetti, Matteo	2	24	 Italy	154	312p			157	255p		2	22	3.411	
+Mullen, Ryan	3	26	 Ireland	544	69p			1208	15p		-	41	5.985	
+Nibali, Antonio	1	28	 Italy				1084	20p		-	38	6.217	
+Nibali, Vincenzo	1	36	 Italy	22	1105p			25	1114p		-	52	8.955	  
+Pedersen, Mads	4	24	 Denmark	53	770p			31	1037p		3	54	8.855	 
+Porte, Richie	2	35	 Australia	8	1493p			7	1733p		2	54	8.973	 
+Quarterman, Charlie	1	22	 Great Britain	1858	3p					-	32	4.726	
+Reijnen, Kiel	5	34	 USA	902	29p			1731	3p		-	21	3.208	
+Ries, Michel	1	22	 Luxembourg	940	26p			737	44p		-	55	8.519	
+Simmons, Quinn	1	19	 USA	165	290p			154	260p		-	30	4.797	
+Skjelmose Jensen, Mattias | Stagista	-	20	 Denmark	1377	10p			1731	3p		-	11	1.926	
+Skujins, Toms	3	29	 Latvia	411	105p			413	91p		-	39	6.749	
+Stuyven, Jasper	7	28	 Belgium	40	839p			55	685p		1	54	9.229	 
+Theuns, Edward	4	29	 Belgium	360	128p			507	72p		-	50	8.686	 
+Tiberi, Antonio | Stagista	-	19	 Italy	722	44p			759	41p		1	15	2.235	
+Weening, Pieter	1	39	 Netherlands	1597	6p			1208	15p		-	19	2.999	
+Ardila, Andres	1	21	 Colombia	940	26p			1731	3p		-	7	1.195	
+Aru, Fabio	3	30	 Italy	219	229p			300	125p		-	23	3.830	 
+Bjerg, Mikkel	1	22	 Denmark	244	206p			609	56p		-	47	7.413	
+Bohli, Tom	2	26	 Switzerland	2099	1p			1381	10p		-	25	3.693	
+Bystrøm, Sven Erik	3	28	 Norway	265	186p			142	286p		1	29	4.635	
+Conti, Valerio	7	27	 Italy	228	223p			252	148p		1	44	7.038	
+Costa, Rui	7	34	 Portugal	67	626p			71	559p		2	53	8.629	 
+Covi, Alessandro	1	22	 Italy	224	225p			197	192p		-	26	4.086	
+De La Cruz, David	1	31	 Spain	74	584p			109	370p		-	58	9.523	
+Dombrowski, Joe	1	29	 USA	1047	20p			1071	21p		-	41	6.526	
+Formolo, Davide	1	28	 Italy	126	384p			93	438p		1	40	6.850	 
+Gaviria, Fernando	2	26	 Colombia	88	520p			119	349p		6	48	7.954	
+Henao, Sergio	2	32	 Colombia	178	271p			238	158p		-	40	6.859	 
+Kristoff, Alexander	3	33	 Norway	58	728p			46	857p		1	43	7.458	  
+Laengen, Vegard Stake	4	31	 Norway	1334	11p			1208	15p		-	45	7.240	
+Marcato, Marco	4	36	 Italy	1301	12p			1042	23p		-	42	7.088	 
+McNulty, Brandon	1	22	 USA	70	596p			138	294p		-	44	6.922	
+Mirza, Yousef	4	32	 UAE	2099	1p					-	9	1.372	
+Molano, Sebastian	2	26	 Colombia	282	172p			560	64p		3	41	6.621	
+Munoz, Cristian	2	24	 Colombia	940	26p			1465	9p		-	13	2.291	
+Oliveira, Ivo	2	24	 Portugal	544	69p			653	50p		1	48	7.356	
+Oliveira, Rui	2	24	 Portugal	479	85p			868	33p		-	45	7.245	
+Philipsen, Jasper	2	22	 Belgium	43	826p			64	602p		3	48	7.877	
+Pogacar, Tadej	2	22	 Slovenia	2	2374p			2	3055p		9	43	7.285	 
+Polanc, Jan	8	28	 Slovenia	272	181p			185	200p		-	41	6.676	
+Ravasi, Edward	4	26	 Italy	655	52p			1042	23p		-	24	4.115	
+Riabushenko, Alexandr	3	25	 Belarus	263	187p			132	308p		-	39	6.152	
+Richeze, Maximiliano	4	37	 Argentina	845	33p			1585	5p		-	51	8.438	
+Troia, Oliviero	4	26	 Italy	1964	2p					-	14	2.356	
+Ulissi, Diego	11	31	 Italy	9	1443p			8	1671p		5	53	8.759	
