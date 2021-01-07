@@ -3,10 +3,13 @@ from bs4 import BeautifulSoup
 import gpxpy
 import matplotlib.pyplot as plt
 import numpy as np
+import os
+import pandas as pd
 
 class Analyzer:
     def __init__(self, track_number = []):
         self.t_n= track_number
+        self.data = self.get_data_from_gpx()
 
     def get_gpx_track(self):
         """Send request to la flamme rouge website to a specific gpx track
@@ -70,24 +73,32 @@ class Analyzer:
         A dictionary where the key is the stage name and the value is a list [positive_elevation_gain, max_elevation, distance]
         """
         data_race={}
-        for track in self.t_n:
-            file_name = 'gpx/'+str(track)+'.gpx'
-            gpx_file= open(file_name, 'r')
-            gpx = gpxpy.parse(gpx_file)
-            name = gpx.tracks[0].name
-            elev = [point.elevation for point in gpx.tracks[0].segments[0].points]
-            elev_change = sum([ elev[i+1] - elev[i] for i in range(len(elev)-1) if elev[i+1] > elev[i] ])
-            max_elev = max(elev)
-            distance = round(gpx.length_2d()/1000,2)
-            data_race[name] = [elev_change, max_elev, distance]
-
+        track = self.t_n
+        #tracks = list(self.t_n)
+        #for track in tracks:
+        if True:
+            if os.path.isfile('gpx/'+str(self.t_n)+'.gpx'):
+                file_name = 'gpx/'+str(track)+'.gpx'
+                gpx_file= open(file_name, 'r')
+                gpx = gpxpy.parse(gpx_file)
+                name = gpx.tracks[0].name
+                elev = [point.elevation for point in gpx.tracks[0].segments[0].points]
+                elev_change = sum([ elev[i+1] - elev[i] for i in range(len(elev)-1) if elev[i+1] > elev[i] ])
+                max_elev = max(elev)
+                distance = round(gpx.length_2d()/1000,2)
+                data_race[name] = [elev_change, max_elev, distance]
+            else:
+                print('File'+str(self.t_n),'needs to be downloaded \n',
+                    'Usage: self.get_gpx_file()'
+                    ) 
+                return 0
         return [data_race,elev]
 
     def is_over_1500(self)->bool:
         """
         determines whether the race got over 1500m of altitude
         """
-        data = self.get_data_from_gpx()
+        data = self.data
         if list(data[0].values())[0][1] >= 1500:
             return True
         return False
@@ -96,7 +107,7 @@ class Analyzer:
         """
         determines whether the race got over 2000m of altitude
         """
-        data = self.get_data_from_gpx()
+        data = self.data
         if list(data[0].values())[0][1] >= 1800:
             return True
         return False
@@ -105,7 +116,7 @@ class Analyzer:
         """
         determines whether the race got over 2000m of altitude
         """
-        data = self.get_data_from_gpx()
+        data = self.data
         if list(data[0].values())[0][1] >= 2000:
             return True
         return False
@@ -118,12 +129,12 @@ class Analyzer:
         -------------------------
         distance (float)
         """
-        data = self.get_data_from_gpx()
+        data = self.data
         return list(data[0].values())[0][2]
 
     def get_altitude(self, distance=0)->float:
         """
-        Returns the altitude of a waypoint, given file name and distance at which you wan to get the altitude
+        Returns the altitude of a waypoint, given file name and distance at which you want to get the altitude
     
         Input
         ------------------------- 
@@ -133,7 +144,7 @@ class Analyzer:
         -------------------------
         altitude (float, m)
         """
-        data = self.get_data_from_gpx(track_number=[tracknumber])
+        data = self.data
         waypoint = int( distance * len(data[1]) / list(data[0].values())[0][2])
         return data[1][waypoint-1]
 
@@ -149,8 +160,27 @@ class Analyzer:
         Bool
         """
         finish = self.get_distance()
-
         if self.get_altitude(finish) - self.get_altitude(finish -5) >=200:
+            return True
+        else:
+            return False
+
+    def is_hilly_finish(self)->bool:
+        """
+        Determines whether a gpx track can be classified as (uphill finish) UF or not.
+        In order to be a UF the criteria that must be met is the following (can be modified)
+        -in the last 0.5 km of the race there has to be an average gradient of at least 5%
+        -that means at least 25m of elevation    
+
+        Output
+        -------------------------
+        Bool
+        """
+        finish = self.get_distance()
+        if self.is_uphill_finish() == True:
+            return False
+
+        if self.get_altitude(finish) - self.get_altitude(finish -0.5) >=25:
             return True
         else:
             return False
@@ -175,7 +205,7 @@ class Analyzer:
             return -1
         if (percentage == 0):
             return 0
-        data=self.get_data_from_gpx()
+        data=self.data
         elev = data[1]
         elev_change = list(data[0].values())[0][0]
         max_elev = list(data[0].values())[0][1]
@@ -185,4 +215,41 @@ class Analyzer:
             if elev[i+1] > elev[i]:
                 temp += elev[i+1] - elev[i]
                 if(temp >= elev_change * percentage):
-                    return round(dist/len(elev) * i,2)
+                    return round(distance/len(elev) * i,2) / distance
+
+routes_data= pd.DataFrame(columns = [
+    'Race Name', 'Race Length', 'Elevation', 'Over 1500m', 'Over 1800m', 'Over 2000m', 'Uphill Finish', 'Hilly finish',
+    'Quantile 0.25','Quantile 0.5', 'Quantile 0.6', 'Quantile 0.75', 'Quantile 0.8', 'Quantile 0.9', 'Quantile 0.95'
+])
+
+dir = 'gpx/'
+file_list = []
+for entry in os.scandir(dir):
+    if (entry.path.endswith('gpx') and entry.is_file()):
+        name = (entry.name)
+        file_list.append(int(os.path.splitext(name)[0]) )
+
+print(len(file_list))
+
+for obj in file_list[0:20]:
+    temp = Analyzer(obj)
+    list_temp = []
+    list_temp.append(list(temp.data[0].keys())[0])              ## add Name
+    list_temp.append(temp.get_distance())                       ## add distance
+    list_temp.append(round (list(temp.data[0].values())[0][0], 2))         ## add elevation
+    list_temp.append(temp.is_over_1500())                       ## is over 1500m
+    list_temp.append(temp.is_over_1800())                       ## is over 1800m
+    list_temp.append(temp.is_over_2000())                       ## is over 2000m
+    list_temp.append(temp.is_uphill_finish())                   ## is uphill finish
+    list_temp.append(temp.is_hilly_finish())                    ## is hilly finish
+    list_temp.append(temp.quantile(0.25))                       ## sample quantiles
+    list_temp.append(temp.quantile(0.50))
+    list_temp.append(temp.quantile(0.60))
+    list_temp.append(temp.quantile(0.75))
+    list_temp.append(temp.quantile(0.80))
+    list_temp.append(temp.quantile(0.90))
+    list_temp.append(temp.quantile(0.95))
+    routes_data.loc[len(routes_data)] = list_temp   ## add list to df
+
+
+print(routes_data)
