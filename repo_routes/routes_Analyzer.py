@@ -132,7 +132,7 @@ class Analyzer:
         data = self.data
         return list(data[0].values())[0][2]
 
-    def get_altitude(self, distance=0)->float:
+    def get_altitude(self, distance)->float:
         """
         Returns the altitude of a waypoint, given file name and distance at which you want to get the altitude
     
@@ -145,7 +145,7 @@ class Analyzer:
         altitude (float, m)
         """
         data = self.data
-        waypoint = int( distance * len(data[1]) / list(data[0].values())[0][2])
+        waypoint = int( distance * len(data[1]) / self.get_distance() ) 
         return data[1][waypoint-1]
 
     def is_uphill_finish(self)->bool:
@@ -185,25 +185,25 @@ class Analyzer:
         else:
             return False
 
-    def quantile(self, percentage=0.5)->float:
+    def quantile(self, percent=0.5)->float:
         """
-        takes as input the tracknumber and a percentage (between 0 and 1) and returns the amount of kms
-        necessary to reach that percentage of covered elevation. Example: quantile(306106, 0.5) takes the infos
+        takes as input the tracknumber and a percent (between 0 and 1) and returns the amount of kms
+        necessary to reach that percent of covered elevation. Example: quantile(306106, 0.5) takes the infos
         from track number 306106 and returns the amount of km necessary to cover half of the total positive
         elevation.
 
         Input
         -------------------------
-        percentage (float)
+        percent (float)
 
         Output
         -------------------------
         distance (float, km)
         """
-        if (percentage <0 or percentage >1):
-            print('Error usage: percentage must be between 0-1')
+        if (percent <0 or percent >1):
+            print('Error usage: percent must be between 0-1')
             return -1
-        if (percentage == 0):
+        if (percent == 0):
             return 0
         data=self.data
         elev = data[1]
@@ -214,12 +214,132 @@ class Analyzer:
         for i in range(len(elev)-1):
             if elev[i+1] > elev[i]:
                 temp += elev[i+1] - elev[i]
-                if(temp >= elev_change * percentage):
+                if(temp >= elev_change * percent):
                     return round(distance/len(elev) * i,2) / distance
+
+    def flat_perc(self)->float:
+        """
+        Determines what % of a given parcour is to be considered flat:
+        flat -> less then 2% of gradient measured over a single waypoint
+
+        Input
+        --------------------------
+        self
+
+        Output
+        --------------------------
+        float between 0 and 1
+        """
+        data= self.data[1]
+        distance = self.get_distance()
+        interval = distance / len(data)
+        temp = 0
+        ascent = 2*interval /0.1
+        for i in np.arange(interval, distance, interval):
+            if(self.get_altitude(i) - self.get_altitude(i-interval) < ascent and self.get_altitude(i) - self.get_altitude(i-interval) > -1* ascent):
+                temp+=interval
+        return round(temp/distance,3)
+
+    def false_flat_up_perc(self)->float:
+        """
+        Determines what % of a given parcour is to be considered false flat uphill:
+        false flat uphill -> between 2 and 4 %  of gradient measured over a waypoint
+
+        Input
+        --------------------------
+        self
+
+        Output
+        --------------------------
+        float between 0 and 1
+        """
+        data= self.data[1]
+        distance = self.get_distance()
+        interval = distance / len(data)
+        temp = 0
+        min_ascent = 2*interval /0.1
+        max_ascent = 4*interval /0.1
+        for i in np.arange(interval, distance, interval):
+            if(min_ascent < self.get_altitude(i) - self.get_altitude(i-interval) < max_ascent):
+                temp+=interval
+        return round(temp/distance,3) 
+
+    def false_flat_dn_perc(self)->float:
+        """
+        Determines what % of a given parcour is to be considered false flat downhill:
+        false flat uphill -> between -2 and -4 %  of gradient measured over a waypoint
+
+        Input
+        --------------------------
+        self
+
+        Output
+        --------------------------
+        float between 0 and 1
+        """
+        data= self.data[1]
+        distance = self.get_distance()
+        interval = distance / len(data)
+        temp = 0
+        min_descent = -1* 2*interval /0.1
+        max_descent = -1* 4*interval /0.1
+        for i in np.arange(interval, distance, interval):
+            if(max_descent < self.get_altitude(i) - self.get_altitude(i-interval) < min_descent):
+                temp+=interval
+        return round(temp/distance,3)
+
+    def downhill_perc(self)->float:
+        """
+        Determines what % of a given parcour is to be considered downhill:
+        downhill -> more then 4% of gradient measured over a single waypoint
+
+        Input
+        --------------------------
+        self
+
+        Output
+        --------------------------
+        float between 0 and 1
+        """
+        data= self.data[1]
+        distance = self.get_distance()
+        interval = distance / len(data)
+        temp = 0
+        descent = -1* 4*interval /0.1
+        for i in np.arange(interval, distance, interval):
+            if(self.get_altitude(i) - self.get_altitude(i-interval) < descent):
+                temp+=interval
+        return round(temp/distance,3)  
+
+    def uphill_perc(self)->float:
+        """
+        Determines what % of a given parcour is to be considered downhill:
+        uphill -> more then 4% of gradient measured over a single waypoint
+
+        Input
+        --------------------------
+        self
+
+        Output
+        --------------------------
+        float between 0 and 1
+        """
+        data= self.data[1]
+        distance = self.get_distance()
+        interval = distance / len(data)
+        temp = 0
+        ascent = 4*interval /0.1
+        for i in np.arange(interval, distance, interval):
+            if(ascent < self.get_altitude(i) - self.get_altitude(i-interval)):
+                temp+=interval
+        return round(temp/distance,3)  
+
+
 
 routes_data= pd.DataFrame(columns = [
     'Race Name', 'Race Length', 'Elevation', 'Over 1500m', 'Over 1800m', 'Over 2000m', 'Uphill Finish', 'Hilly finish',
-    'Quantile 0.25','Quantile 0.5', 'Quantile 0.6', 'Quantile 0.75', 'Quantile 0.8', 'Quantile 0.9', 'Quantile 0.95'
+    'Quantile 0.25','Quantile 0.5', 'Quantile 0.6', 'Quantile 0.75', 'Quantile 0.8', 'Quantile 0.9', 'Quantile 0.95',' Perc Flat',
+    'Perc False Flat Up', 'Perc False Flat Down', 'Perc Uphill', 'Perc Downhill'
 ])
 
 dir = 'gpx/'
@@ -229,9 +349,8 @@ for entry in os.scandir(dir):
         name = (entry.name)
         file_list.append(int(os.path.splitext(name)[0]) )
 
-print(len(file_list))
 
-for obj in file_list[0:20]:
+for obj in file_list:
     temp = Analyzer(obj)
     list_temp = []
     list_temp.append(list(temp.data[0].keys())[0])              ## add Name
@@ -249,7 +368,12 @@ for obj in file_list[0:20]:
     list_temp.append(temp.quantile(0.80))
     list_temp.append(temp.quantile(0.90))
     list_temp.append(temp.quantile(0.95))
-    routes_data.loc[len(routes_data)] = list_temp   ## add list to df
+    list_temp.append(temp.flat_perc())                          ## % flat
+    list_temp.append(temp.false_flat_up_perc())                 ## % ffuphill
+    list_temp.append(temp.false_flat_dn_perc())                 ## % ffdownhill
+    list_temp.append(temp.uphill_perc())                        ## % uphill
+    list_temp.append(temp.downhill_perc())                      ## % downhill
+    routes_data.loc[len(routes_data)] = list_temp               ## add list to df
 
 
 print(routes_data)
