@@ -232,7 +232,7 @@ class Analyzer:
         """
         data= self.data[1]
         distance = self.get_distance()
-        interval = distance / len(data)
+        interval = 0.05
         temp = 0
         ascent = 2*interval /0.1
         for i in np.arange(interval, distance, interval):
@@ -255,12 +255,12 @@ class Analyzer:
         """
         data= self.data[1]
         distance = self.get_distance()
-        interval = distance / len(data)
+        interval = 0.05
         temp = 0
         min_ascent = 2*interval /0.1
         max_ascent = 4*interval /0.1
         for i in np.arange(interval, distance, interval):
-            if(min_ascent < self.get_altitude(i) - self.get_altitude(i-interval) < max_ascent):
+            if(min_ascent <= self.get_altitude(i) - self.get_altitude(i-interval) < max_ascent):
                 temp+=interval
         return round(temp/distance,3) 
 
@@ -279,12 +279,12 @@ class Analyzer:
         """
         data= self.data[1]
         distance = self.get_distance()
-        interval = distance / len(data)
+        interval = 0.05
         temp = 0
         min_descent = -1* 2*interval /0.1
         max_descent = -1* 4*interval /0.1
         for i in np.arange(interval, distance, interval):
-            if(max_descent < self.get_altitude(i) - self.get_altitude(i-interval) < min_descent):
+            if(max_descent < self.get_altitude(i) - self.get_altitude(i-interval) <= min_descent):
                 temp+=interval
         return round(temp/distance,3)
 
@@ -303,11 +303,11 @@ class Analyzer:
         """
         data= self.data[1]
         distance = self.get_distance()
-        interval = distance / len(data)
+        interval = 0.05
         temp = 0
         descent = -1* 4*interval /0.1
         for i in np.arange(interval, distance, interval):
-            if(self.get_altitude(i) - self.get_altitude(i-interval) < descent):
+            if(self.get_altitude(i) - self.get_altitude(i-interval) <= descent):
                 temp+=interval
         return round(temp/distance,3)  
 
@@ -326,11 +326,11 @@ class Analyzer:
         """
         data= self.data[1]
         distance = self.get_distance()
-        interval = distance / len(data)
+        interval = 0.05
         temp = 0
         ascent = 4*interval /0.1
         for i in np.arange(interval, distance, interval):
-            if(ascent < self.get_altitude(i) - self.get_altitude(i-interval)):
+            if(ascent <= self.get_altitude(i) - self.get_altitude(i-interval)):
                 temp+=interval
         return round(temp/distance,3)  
 
@@ -350,7 +350,7 @@ for entry in os.scandir(dir):
         file_list.append(int(os.path.splitext(name)[0]) )
 
 
-for obj in file_list:
+for obj in file_list[0:30]:
     temp = Analyzer(obj)
     list_temp = []
     list_temp.append(list(temp.data[0].keys())[0])              ## add Name
