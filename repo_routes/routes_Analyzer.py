@@ -340,6 +340,13 @@ class Analyzer:
         return round(elev/distance, 3)
 ## quante volte sali sopra i 2000m e scendi
 
+    def is_tt(self)->bool:
+        for track in self.t_n:
+            url = 'https://www.la-flamme-rouge.eu/maps/viewtrack/'+str(track)
+            headers={'User-Agent':'Mozilla/5'}
+            r = requests.get(url, allow_redirects=True,headers=headers)
+            return 'Time Trial' in r.text
+
 routes_data= pd.DataFrame(columns = [
     'Race Name', 'Race Length', 'Elevation', 'Elevation/Km', 'Over 1500m', 'Over 1800m', 'Over 2000m', 'Uphill Finish', 'Hilly finish',
     'Quantile 0.25','Quantile 0.5', 'Quantile 0.6', 'Quantile 0.75', 'Quantile 0.8', 'Quantile 0.9', 'Quantile 0.95',' Perc Flat',
