@@ -334,10 +334,14 @@ class Analyzer:
                 temp+=interval
         return round(temp/distance,3)  
 
-
+    def elev_per_km(self)->float:
+        elev = list(self.data[0].values())[0][0]
+        distance = self.get_distance()
+        return round(elev/distance, 3)
+## quante volte sali sopra i 2000m e scendi
 
 routes_data= pd.DataFrame(columns = [
-    'Race Name', 'Race Length', 'Elevation', 'Over 1500m', 'Over 1800m', 'Over 2000m', 'Uphill Finish', 'Hilly finish',
+    'Race Name', 'Race Length', 'Elevation', 'Elevation/Km', 'Over 1500m', 'Over 1800m', 'Over 2000m', 'Uphill Finish', 'Hilly finish',
     'Quantile 0.25','Quantile 0.5', 'Quantile 0.6', 'Quantile 0.75', 'Quantile 0.8', 'Quantile 0.9', 'Quantile 0.95',' Perc Flat',
     'Perc False Flat Up', 'Perc False Flat Down', 'Perc Uphill', 'Perc Downhill'
 ])
@@ -350,12 +354,13 @@ for entry in os.scandir(dir):
         file_list.append(int(os.path.splitext(name)[0]) )
 
 
-for obj in file_list[0:30]:
+for obj in file_list:
     temp = Analyzer(obj)
     list_temp = []
     list_temp.append(list(temp.data[0].keys())[0])              ## add Name
     list_temp.append(temp.get_distance())                       ## add distance
     list_temp.append(round (list(temp.data[0].values())[0][0], 2))         ## add elevation
+    list_temp.append(temp.elev_per_km())                        ## elevation per km
     list_temp.append(temp.is_over_1500())                       ## is over 1500m
     list_temp.append(temp.is_over_1800())                       ## is over 1800m
     list_temp.append(temp.is_over_2000())                       ## is over 2000m
@@ -376,4 +381,5 @@ for obj in file_list[0:30]:
     routes_data.loc[len(routes_data)] = list_temp               ## add list to df
 
 
-print(routes_data)
+plt.hist(routes_data['Elevation/Km'])
+plt.show()
