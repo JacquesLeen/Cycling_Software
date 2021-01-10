@@ -338,6 +338,7 @@ class Analyzer:
         elev = list(self.data[0].values())[0][0]
         distance = self.get_distance()
         return round(elev/distance, 3)
+
 ## quante volte sali sopra i 2000m e scendi
 
 routes_data= pd.DataFrame(columns = [
