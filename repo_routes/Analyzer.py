@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 import pandas as pd
+from datetime import datetime
+from meteostat import Stations, Hourly
 
 class Analyzer:
     def __init__(self, track_number = []):
@@ -66,14 +68,15 @@ class Analyzer:
             open('gpx/'+str(track)+'.gpx', 'wb').write(r.content)
 
     def get_data_from_gpx(self):
-        """Extract stage name elevation, max elevation and distance from the text of the files
+        """Extract stage name elevation, max elevation and distance as well as last point from the gpx files
     
         Returns
         ------------
-        A dictionary where the key is the stage name and the value is a list [positive_elevation_gain, max_elevation, distance]
+        A dictionary where the key is the stage name and the value is a list [positive_elevation_gain, max_elevation, distance, [latitude, longitude]]
         """
         data_race={}
         track = self.t_n
+        last_point = []
         #tracks = list(self.t_n)
         #for track in tracks:
         if True:
@@ -86,7 +89,9 @@ class Analyzer:
                 elev_change = sum([ elev[i+1] - elev[i] for i in range(len(elev)-1) if elev[i+1] > elev[i] ])
                 max_elev = max(elev)
                 distance = round(gpx.length_2d()/1000,2)
-                data_race[name] = [elev_change, max_elev, distance]
+                last_point.append(gpx.tracks[0].segments[0].points[-1].latitude)
+                last_point.append(gpx.tracks[0].segments[0].points[-1].longitude)
+                data_race[name] = [elev_change, max_elev, distance, last_point]
             else:
                 print('File'+str(self.t_n),'needs to be downloaded \n',
                     'Usage: self.get_gpx_file()'
@@ -363,6 +368,35 @@ class Analyzer:
             if i>altitude:
                 temp.append(i)
         return round(len(temp)/len(data),3)
+
+    def get_weather_data(self):
+        """
+        Determines some weather data (metereological station closest to the final point) on the
+        day of the race
+        Input
+        --------------------------
+        self
+        latitude and longitude (decimal)
+        date (datetime)
+        Output
+        --------------------------
+        dataframe
+        """
+        latitude = list(self.data[0].values())[0][3][0]
+        longitude = list(self.data[0].values())[0][3][1]
+        stations = Stations()
+        stations = stations.nearby(latitude, longitude)
+        station = stations.fetch(3)
+        race_date_start = datetime(2018,10,10, 9, 00)
+        race_date_end = datetime(2018,10,10, 17,00)
+        data = Hourly(station, start=race_date_start, end=race_date_end)
+        data = data.normalize()
+        data = data.interpolate(9)
+        data = data.aggregate('9H')
+        df =  pd.DataFrame(data.fetch().values)
+        df[0] = df[0].fillna(df[0].mean())
+        df[6] = df[6].fillna(df[6].mean())
+        return df
 
 
 

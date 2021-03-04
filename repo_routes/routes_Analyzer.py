@@ -6,12 +6,16 @@ import numpy as np
 import os
 import pandas as pd
 import Analyzer
+from meteostat import Stations, Daily, Hourly
+
+
+
 
 routes_data= pd.DataFrame(columns = [
     'Race Name', 'Race Length', 'Elevation', 'Elevation/Km', 'TT', 'Over 1500m', 'Over 1800m', 'Over 2000m', 'Uphill Finish', 'Hilly finish',
     'Quantile 0.25','Quantile 0.5', 'Quantile 0.6', 'Quantile 0.75', 'Quantile 0.8', 'Quantile 0.9', 'Quantile 0.95',' Perc Flat',
     'Perc False Flat Up', 'Perc False Flat Down', 'Perc Uphill', 'Perc Downhill', 'Perc over 500m', 'Perc over 1000m', 'Perc over 1500m',
-    'Perc over 2000m'
+    'Perc over 2000m', 'Avg Temp', 'Avg Wind', 'mm Precipitation'
 ])
 
 dir = 'gpx/'
@@ -22,7 +26,7 @@ for entry in os.scandir(dir):
         file_list.append(int(os.path.splitext(name)[0]) )
 
 
-for obj in file_list[40:60]:
+for obj in file_list[0:20]:
     temp = Analyzer.Analyzer(obj)
     list_temp = []
     list_temp.append(list(temp.data[0].keys())[0])              ## add Name
@@ -51,7 +55,13 @@ for obj in file_list[40:60]:
     list_temp.append(temp.perc_over())                          ## % over 1000m
     list_temp.append(temp.perc_over(1500))                      ## % over 1500m
     list_temp.append(temp.perc_over(2000))                      ## % over 2000m
+    weather_data =temp.get_weather_data()
+    list_temp.append(weather_data.iloc[0,0])
+    list_temp.append(weather_data.iloc[0,6])
+    list_temp.append(weather_data.iloc[0,3])
     routes_data.loc[len(routes_data)] = list_temp               ## add list to df
 
 
 print(routes_data)
+
+
