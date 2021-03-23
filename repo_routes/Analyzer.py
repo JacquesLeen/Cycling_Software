@@ -6,7 +6,7 @@ import numpy as np
 import os
 import pandas as pd
 from datetime import datetime
-from meteostat import Stations, Hourly
+from meteostat import Stations, Hourly, Daily
 
 class Analyzer:
     def __init__(self, track_number = []):
@@ -388,14 +388,20 @@ class Analyzer:
         stations = stations.nearby(latitude, longitude)
         station = stations.fetch(3)
         race_date_start = datetime(2018,10,10, 9, 00)
+        race_date_daily = datetime(2018,10,10)
         race_date_end = datetime(2018,10,10, 17,00)
         data = Hourly(station, start=race_date_start, end=race_date_end)
+        data_daily = Daily(station, start=race_date_daily, end=race_date_daily)
         data = data.normalize()
         data = data.interpolate(9)
         data = data.aggregate('9H')
+        data_daily = data_daily.normalize()
+        df_daily = pd.DataFrame(data_daily.fetch().values)
         df =  pd.DataFrame(data.fetch().values)
         df[0] = df[0].fillna(df[0].mean())
         df[6] = df[6].fillna(df[6].mean())
+        df[3] = df_daily[3].fillna(df_daily[3].mean()).fillna(0.0)
+        df[10] = df[10].fillna(method="ffill").fillna(method="bfill")
         return df
 
 
