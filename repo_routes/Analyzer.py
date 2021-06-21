@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-import gpxpy
+from haversine import haversine, Unit
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -21,6 +21,7 @@ class Analyzer:
         The parsed URLs as a list
         """
         soup = []
+        print(self.t_n)
         for track in self.t_n:
             url = 'http://la-flamme-rouge.eu/maps/viewtrack/gpx/'+str(track)
             headers={'User-Agent':'Mozilla/5'}
@@ -77,6 +78,40 @@ class Analyzer:
         data_race={}
         track = self.t_n
         last_point = []
+        url = 'http://la-flamme-rouge.eu/maps/viewtrack/gpx/'+str(self.t_n)
+        headers = {'User-Agent':'Mozilla/5'}
+        r = requests.get(url, allow_redirects=True,headers=headers)
+        soup = BeautifulSoup(r.text,'html.parser')
+
+        lat = []
+        lon = []
+        ele = []
+        for i in soup.find('trkseg').find_all('trkpt'):
+            lat.append(i['lat'])
+            lon.append(i['lon'])
+            ele.append(i.find('ele').text)
+        race_name = soup.find('name').text
+        elev_change = 0     ## sets elev_change = 0
+        distance = 0
+        max_elev = int(ele[0])    ## append last point (for weather data)
+        last_point = [float(lat[-1]), float(lon[-1])]
+    
+        for i in range(1,len(ele)):                                 ## loops through all elements 
+                        ## evaluate total elevation change
+            if(int(ele[i])>int(ele[i-1])):                          ## if this point is higher than previous 
+                elev_change += int(ele[i])-int(ele[i-1])            ## add the difference to elev_change
+                        ## search for highest point in the race
+            if(int(ele[i]) > int(max_elev)):                        ## if this point is higher than max_elev
+                max_elev=ele[i]                                     ## set max_elev to new value
+                        ## haversine distance
+            begin = (float(lat[i]), float(lon[i]))
+            end = (float(lat[i-1]), float(lon[i-1]))
+            distance += haversine( end, begin )
+        ele = [int(x) for x in ele]
+        data_race[race_name] = [elev_change, max_elev, distance, last_point]
+        return [data_race, ele]
+        
+        """
         #tracks = list(self.t_n)
         #for track in tracks:
         if True:
@@ -98,13 +133,15 @@ class Analyzer:
                     ) 
                 return 0
         return [data_race,elev]
+        """
+
 
     def is_over_1500(self)->bool:
         """
         determines whether the race got over 1500m of altitude
         """
         data = self.data
-        if list(data[0].values())[0][1] >= 1500:
+        if int(list(data[0].values())[0][1]) >= 1500:
             return True
         return False
     
@@ -113,7 +150,7 @@ class Analyzer:
         determines whether the race got over 2000m of altitude
         """
         data = self.data
-        if list(data[0].values())[0][1] >= 1800:
+        if int(list(data[0].values())[0][1]) >= 1800:
             return True
         return False
 
@@ -122,7 +159,7 @@ class Analyzer:
         determines whether the race got over 2000m of altitude
         """
         data = self.data
-        if list(data[0].values())[0][1] >= 2000:
+        if int(list(data[0].values())[0][1]) >= 2000:
             return True
         return False
 
@@ -165,7 +202,7 @@ class Analyzer:
         Bool
         """
         finish = self.get_distance()
-        if self.get_altitude(finish) - self.get_altitude(finish -5) >=200:
+        if int(self.get_altitude(finish)) - int(self.get_altitude(finish -5)) >=200:
             return True
         else:
             return False
@@ -185,7 +222,7 @@ class Analyzer:
         if self.is_uphill_finish() == True:
             return False
 
-        if self.get_altitude(finish) - self.get_altitude(finish -0.5) >=25:
+        if int(self.get_altitude(finish)) - int(self.get_altitude(finish -0.5)) >=25:
             return True
         else:
             return False
@@ -217,7 +254,7 @@ class Analyzer:
         temp = 0
         for i in range(len(elev)-1):
             if elev[i+1] > elev[i]:
-                temp += elev[i+1] - elev[i]
+                temp += int(elev[i+1]) - int(elev[i])
                 if(temp >= elev_change * percent):
                     return round(distance/len(elev) * i,2) / distance
 
