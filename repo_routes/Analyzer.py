@@ -98,16 +98,16 @@ class Analyzer:
     
         for i in range(1,len(ele)):                                 ## loops through all elements 
                         ## evaluate total elevation change
-            if(int(ele[i])>int(ele[i-1])):                          ## if this point is higher than previous 
-                elev_change += int(ele[i])-int(ele[i-1])            ## add the difference to elev_change
+            if(int(float(ele[i]))>int(float(ele[i-1]))):                          ## if this point is higher than previous 
+                elev_change += int(float(ele[i]))-int(float(ele[i-1]))            ## add the difference to elev_change
                         ## search for highest point in the race
-            if(int(ele[i]) > int(max_elev)):                        ## if this point is higher than max_elev
+            if(int(float(ele[i])) > int(max_elev)):                        ## if this point is higher than max_elev
                 max_elev=ele[i]                                     ## set max_elev to new value
                         ## haversine distance
             begin = (float(lat[i]), float(lon[i]))
             end = (float(lat[i-1]), float(lon[i-1]))
             distance += haversine( end, begin )
-        ele = [int(x) for x in ele]
+        ele = [int(float(x)) for x in ele]
         data_race[race_name] = [elev_change, max_elev, distance, last_point]
         return [data_race, ele]
         

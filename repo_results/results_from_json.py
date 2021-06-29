@@ -3,7 +3,7 @@ import json
 import Extract_from_json
 from datetime import datetime
 
-json_name = '14.json' #set new json name if necessary or list over files
+json_name = 'repo_results/14.json' #set new json name if necessary or list over files
 
 EFJS = Extract_from_json.Extract_from_json(json_name)
 

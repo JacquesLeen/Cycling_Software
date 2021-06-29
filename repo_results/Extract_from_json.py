@@ -180,6 +180,7 @@ class Extract_from_json:
             else:
                 results_list.append('dnf')
         return results_list
+
 """
 with open(json_name) as json_file:
     data = json.load(json_file)
