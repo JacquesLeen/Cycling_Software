@@ -10,9 +10,9 @@ import sys
 import json
 from datetime import datetime
 
-sys.path.insert(0,"/Users/giacomolini/Desktop/Cycling_Software/repo_results")
+sys.path.insert(0, r"C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_results") #/Users/giacomolini/Desktop/Cycling_Software/repo_results
 import Extract_from_json
-sys.path.insert(0,"/Users/giacomolini/Desktop/Cycling_Software/repo_routes")
+sys.path.insert(0, r"C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_routes") #/Users/giacomolini/Desktop/Cycling_Software/repo_routes)
 import Analyzer
 
 
@@ -25,7 +25,7 @@ routes_data= pd.DataFrame(columns = [
     'Race Name', 'RL', 'Elev', 'Elev/Km', 'TT', 'Ov1500m', 'Ov1800m', 'Ov2000m', 'UphFinish', 'HillFinish',
     'Quant0.25','Quant0.5', 'Quant0.6', 'Quant0.75', 'Quant0.8', 'Quant0.9', 'Quant0.95','PercFlat',
     'PercFF Up', 'PercFF Down', 'PercUp', 'PercDown', 'PercOv500m', 'PercOv1000m', 'PercOv1500m',
-    'PercOv2000m', 'Avg Temp', 'Avg Wind', 'mm Prec', 'Weather Code'
+    'PercOv2000m', #'Avg Temp', 'Avg Wind', 'mm Prec', 'Weather Code'
 ])
 
 for obj in track_num:
@@ -57,11 +57,11 @@ for obj in track_num:
     list_temp.append(temp.perc_over())                          ## % over 1000m
     list_temp.append(temp.perc_over(1500))                      ## % over 1500m
     list_temp.append(temp.perc_over(2000))                      ## % over 2000m
-    weather_data =temp.get_weather_data()                       ## weather data
-    list_temp.append(weather_data.iloc[0,0])                    ## avg temperature
-    list_temp.append(weather_data.iloc[0,6])                    ## avg wind
-    list_temp.append(weather_data.iloc[0,3])                    ## total precipitation
-    list_temp.append(weather_data.iloc[0,10])                   ## weather code
+    #weather_data = temp.get_weather_data()                       ## weather data
+    #list_temp.append(weather_data.iloc[0,0])                    ## avg temperature
+    #list_temp.append(weather_data.iloc[0,6])                    ## avg wind
+    #list_temp.append(weather_data.iloc[0,3])                    ## total precipitation
+    #list_temp.append(weather_data.iloc[0,10])                   ## weather code
     routes_data.loc[len(routes_data)] = list_temp               ## add list to df
 
 
