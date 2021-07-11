@@ -3,12 +3,12 @@ import json
 import Extract_from_json
 from datetime import datetime
 
-json_name = 'repo_results/14.json' #set new json name if necessary or list over files
+json_name = '14.json' #set new json name if necessary or list over files
 
 EFJS = Extract_from_json.Extract_from_json(json_name)
 
 
-# print(EFJS.Extract_info())
+print(EFJS.Extract_info())
 # print("********************")
 # print(EFJS.Teams())
 # print("********************")
@@ -20,7 +20,7 @@ EFJS = Extract_from_json.Extract_from_json(json_name)
 
 
 #print(EFJS.Get_Riders_Teams())
-
+"""
 print(EFJS.data['riders']['73811'])
 for rider in EFJS.Riders():
     print(  EFJS.Get_Rider_Name(rider), 
@@ -38,3 +38,4 @@ for rider in EFJS.Riders():
 print('time of winner:', EFJS.time_of_first)
 
 print('number of stages:', EFJS.Get_Number_Of_Stages())
+"""

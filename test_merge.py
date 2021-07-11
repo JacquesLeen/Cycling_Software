@@ -16,6 +16,15 @@ sys.path.insert(0,"/Users/giacomolini/Desktop/Cycling_Software/repo_routes")
 import Analyzer
 
 
+"""
+    it takes some 5 minutes to run the script for downloading the tracks and since we are testing the
+    merge it makes sense to download it once and save the data on a csv file which we will reupload
+    directly from the local folder... 
+"""
+
+## UNCOMMENT FROM DOWN HERE IF U WISH TO LAUNCH THE WHOLE PROCESS
+
+"""
 track_num =['324148', '324149', '324150', '324151', '324215', '324222', '324226']
 
 track_num = [int(x) for x in track_num]
@@ -64,20 +73,20 @@ for obj in track_num:
     list_temp.append(weather_data.iloc[0,10])                   ## weather code
     routes_data.loc[len(routes_data)] = list_temp               ## add list to df
 
-
-print(routes_data)
+routes_data.to_csv("Routes_Data.csv")
 
 json_name = 'repo_results/14.json' #set new json name if necessary or list over files
 
 EFJS = Extract_from_json.Extract_from_json(json_name)
 
 rider_data = pd.DataFrame(columns = [
-    'Rider Name', 'Nation Code', 'Team ID',
+    'Race Name','Rider Name', 'Nation Code', 'Team ID',
     'Team Name', 'Final Result', 'Final Time Gap', 'Final Result Time',
     'Stages Results', 'Stages Gaps', 'Finished Race'
 ])
 for rider in EFJS.Riders():
     list_temp = []
+    list_temp.append(EFJS.Get_Race_Name())
     list_temp.append(EFJS.Get_Rider_Name(rider)), 
     list_temp.append(EFJS.Get_Rider_Nation_Code(rider)), 
     list_temp.append(EFJS.Get_Rider_Team_Id(rider)),
@@ -90,6 +99,28 @@ for rider in EFJS.Riders():
     list_temp.append(EFJS.Get_Finished_Race(rider)),
     rider_data.loc[len(rider_data)] = list_temp 
     
- 
-print(rider_data)
 
+rider_data.to_csv("Riders_Data.csv")
+
+"""
+
+## NO NEED TO IMPORT THESE FILES IF YOU UNCOMMENTED ABOVE
+routes_data = pd.read_csv("Routes_Data.csv")
+rider_data = pd.read_csv("Riders_Data.csv")
+
+##creates id for the races
+race_id = []
+
+for i in routes_data['Race Name']:
+    race_id.append(id(i))
+
+routes_data['ID'] = race_id
+
+col_id = [] ## list of lists of ids for the rider_df
+for x in range(len(rider_data['Nation Code'])):
+    col_id.append(race_id)
+
+rider_data['STAGES ID'] = col_id
+
+
+print(rider_data)

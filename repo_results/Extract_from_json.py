@@ -16,7 +16,10 @@ class Extract_from_json:
                     hh, mm, ss = self.time_of_first.split(':')
                     self.tof_seconds = int(hh)*3600 + int(mm)*60 + int(ss)
     def Extract_info(self):
-       return self.data['info']
+        return self.data['info']
+
+    def Get_Race_Name(self):
+        return self.data['info']['race']
 
 #####################################################################
 #                            TEAMS                                  #
