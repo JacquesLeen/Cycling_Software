@@ -1,4 +1,4 @@
-from numpy import NAN
+from numpy import NAN, nan
 import pandas as pd
 import json
 from datetime import datetime
@@ -153,7 +153,7 @@ class Extract_from_json:
                 stages = stages +1
         return stages
 
-    def Get_Stages_Results (self, id):
+    def Get_All_Stages_Results (self, id):
         """
         returns partial results for the rider
         """ 
@@ -166,7 +166,7 @@ class Extract_from_json:
                 results_list.append('dnf')
         return results_list
 
-    def Get_Stages_Gaps (self, id):
+    def Get_All_Stages_Gaps (self, id):
         """
         returns the time gap from the winner for every stage
         """
@@ -183,6 +183,13 @@ class Extract_from_json:
             else:
                 results_list.append('dnf')
         return results_list
+
+    def Get_Single_Stage_Result(self, id, stage_nr):
+        if(stage_nr < 1) or (stage_nr > self.Get_Number_Of_Stages()):
+            print("enter correct number of stage")
+            return nan
+        temp = self.Get_All_Stages_Results(id)
+        return temp[stage_nr-1]
 
 """
 with open(json_name) as json_file:
