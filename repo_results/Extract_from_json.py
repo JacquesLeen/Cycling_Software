@@ -15,6 +15,15 @@ class Extract_from_json:
                     self.time_of_first = str(self.data['riders'][str(rider)].get('overall')['time'])
                     hh, mm, ss = self.time_of_first.split(':')
                     self.tof_seconds = int(hh)*3600 + int(mm)*60 + int(ss)
+        self.nr_stages = self.Get_Number_Of_Stages()
+        self.stages_winning_time = []
+        for i in range(self.nr_stages):
+            winning_time = str(self.Get_Time_Of_Stage_Winner(i+1))
+            winning_time = datetime.strptime(winning_time, "%H:%M:%S")
+            winning_time_delta = winning_time - datetime(1900,1,1)
+            winning_time_seconds = winning_time_delta.total_seconds()
+            self.stages_winning_time.append(winning_time_seconds)
+
     def Extract_info(self):
         return self.data['info']
 
@@ -190,6 +199,37 @@ class Extract_from_json:
             return nan
         temp = self.Get_All_Stages_Results(id)
         return temp[stage_nr-1]
+
+    def Get_Single_Stage_Gap(self, id, stage_nr):
+        if(stage_nr < 1) or (stage_nr > self.Get_Number_Of_Stages()):
+            print("enter correct number of stage")
+            return nan
+        temp = self.Get_All_Stages_Gaps(id)
+        return temp[stage_nr-1]
+
+    def Get_Time_Of_Stage_Winner(self, stage_nr):
+        if(stage_nr < 1) or (stage_nr > self.Get_Number_Of_Stages()):
+            print("enter correct number of stage")
+            return nan
+        else:
+            riders = self.Riders()
+            for rider in riders:
+                if (self.Get_Single_Stage_Result(rider, stage_nr) ==1):
+                    winner = rider
+                    break
+            return self.data['riders'][str(winner)].get('stage-'+str(stage_nr))['stageTime']
+
+    def Get_Percentage_Of_Winning_Time (self, id, stage_nr):
+        if(self.Get_Single_Stage_Gap(id, stage_nr) == "dnf"):
+            print("dnf")
+            return "dnf"
+        winning_time_seconds = self.stages_winning_time[stage_nr-1]
+        rider_gap = str(self.Get_Single_Stage_Gap(id, stage_nr))
+        rider_gap = datetime.strptime(rider_gap, "%H:%M:%S")
+        rider_gap_delta = rider_gap - datetime(1900,1,1)
+        rider_gap_seconds = rider_gap_delta.total_seconds()
+        return (rider_gap_seconds + winning_time_seconds)/winning_time_seconds
+
 
 """
 with open(json_name) as json_file:

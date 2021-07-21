@@ -44,12 +44,12 @@ print('number of stages:', EFJS.Get_Number_Of_Stages())
 
 
 race_dict = {}
-for i in range(EFJS.Get_Number_Of_Stages()):
+for i in range(3):
     rider_data = pd.DataFrame(columns = [
         'Race Name','Rider Name', 'Nation Code', 'Team ID',
         'Team Name', 'Final Result', 'Final Time Gap', 'Final Result Time',
-        'Stages Results', #'Stages Gaps', 
-        'Finished Race'
+        'Stages Results', 'Stages Gaps', 
+        'Finished Race', 'Percentage of Winning Time'
     ])
     for rider in EFJS.Riders():
         list_temp = []
@@ -61,11 +61,14 @@ for i in range(EFJS.Get_Number_Of_Stages()):
         list_temp.append(EFJS.Get_Final_Result_Position(rider)),
         list_temp.append(EFJS.Get_Final_Time_Gap(rider)),
         list_temp.append(EFJS.Get_Final_Result_Time(rider)),
-        list_temp.append(EFJS.Get_Single_Stage_Result(rider, EFJS.Get_Number_Of_Stages())),
-        #list_temp.append(EFJS.Get_Stages_Gaps(rider)),
+        list_temp.append(EFJS.Get_Single_Stage_Result(rider, i+1)),
+        list_temp.append(EFJS.Get_Single_Stage_Gap(rider, i+1 )),
         list_temp.append(EFJS.Get_Finished_Race(rider)),
+        list_temp.append(EFJS.Get_Percentage_Of_Winning_Time(rider, i+1)),
         rider_data.loc[len(rider_data)] = list_temp 
     race_dict['stage'+str(i+1)] = rider_data
 
 print(race_dict)
 
+for i in range(EFJS.Get_Number_Of_Stages()):
+    print(EFJS.Get_Time_Of_Stage_Winner(i+1))
