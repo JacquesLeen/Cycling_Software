@@ -5,17 +5,23 @@ from datetime import datetime
 
 class Extract_from_json:
     def __init__(self, file_Name: str) -> None:
+        """Set Name of the File as Member of Class Object"""
         self.file_name = file_Name
+        """Set Data of the File as Member of Class Object"""
         with open(self.file_name) as filename:
             self.data = json.load(filename)
+        """Set Total Time of Winner, and Name as Members of Class Object"""
         self.time_of_first = 0
         for rider in list(self.data['riders'].keys()):
             if self.data['riders'][str(rider)].get('overall') is not None:
                 if self.data['riders'][str(rider)].get('overall')['position'] == 1 :
+                    self.winner_name = str(self.data['riders'][str(rider)].get('firstName')) + str(self.data['riders'][str(rider)].get('lastName'))
                     self.time_of_first = str(self.data['riders'][str(rider)].get('overall')['time'])
                     hh, mm, ss = self.time_of_first.split(':')
                     self.tof_seconds = int(hh)*3600 + int(mm)*60 + int(ss)
+        """Set Number of Stages as Member Class Object"""
         self.nr_stages = self.Get_Number_Of_Stages()
+        """Set List of Winning Times as Member of Class Object"""
         self.stages_winning_time = []
         for i in range(self.nr_stages):
             winning_time = str(self.Get_Time_Of_Stage_Winner(i+1))
@@ -23,6 +29,19 @@ class Extract_from_json:
             winning_time_delta = winning_time - datetime(1900,1,1)
             winning_time_seconds = winning_time_delta.total_seconds()
             self.stages_winning_time.append(winning_time_seconds)
+        """Set List Of Stage Winners as Member of Class Object"""
+        self.stage_winners_names = []
+        for i in range(self.nr_stages):
+            for rider in list(self.data['riders'].keys()):
+                temp =[]
+                if self.data['riders'][str(rider)].get('stage-'+ str(i+1)) is not None:
+                    if self.data['riders'][str(rider)].get('stage-'+ str(i+1))['stagePosition'] == 1 :
+                        temp.append(str(self.data['riders'][str(rider)].get('firstName')))
+                        temp.append(str(self.data['riders'][str(rider)].get('lastName')))
+                        temp.append(str(self.data['riders'][str(rider)].get('id')))
+                        self.stage_winners_names.append(temp)
+        
+
 
     def Extract_info(self):
         return self.data['info']
@@ -102,6 +121,16 @@ class Extract_from_json:
         """        
         return self.data['riders'][str(id)].get('teamName')
     
+    def Get_Stages_Winners(self):
+        """
+        returns list with stage winners and their id
+        """
+        return self.stage_winners_names
+
+#####################################################################
+#                            RESULTS                                #
+#####################################################################
+
     def Get_Finished_Race(self, id):
         """
         returns the info relative to whether the rider finished the race or not:
@@ -194,6 +223,9 @@ class Extract_from_json:
         return results_list
 
     def Get_Single_Stage_Result(self, id, stage_nr):
+        """
+        Returns result of rider in a single stage
+        """
         if(stage_nr < 1) or (stage_nr > self.Get_Number_Of_Stages()):
             print("enter correct number of stage")
             return nan
@@ -201,6 +233,9 @@ class Extract_from_json:
         return temp[stage_nr-1]
 
     def Get_Single_Stage_Gap(self, id, stage_nr):
+        """
+        Returns gap of rider in a certain stage
+        """
         if(stage_nr < 1) or (stage_nr > self.Get_Number_Of_Stages()):
             print("enter correct number of stage")
             return nan
@@ -208,6 +243,9 @@ class Extract_from_json:
         return temp[stage_nr-1]
 
     def Get_Time_Of_Stage_Winner(self, stage_nr):
+        """
+        Returns time fo stage winner
+        """
         if(stage_nr < 1) or (stage_nr > self.Get_Number_Of_Stages()):
             print("enter correct number of stage")
             return nan
@@ -220,8 +258,10 @@ class Extract_from_json:
             return self.data['riders'][str(winner)].get('stage-'+str(stage_nr))['stageTime']
 
     def Get_Percentage_Of_Winning_Time (self, id, stage_nr):
+        """
+        Returns % of time of single stage
+        """
         if(self.Get_Single_Stage_Gap(id, stage_nr) == "dnf"):
-            print("dnf")
             return "dnf"
         winning_time_seconds = self.stages_winning_time[stage_nr-1]
         rider_gap = str(self.Get_Single_Stage_Gap(id, stage_nr))
@@ -229,6 +269,19 @@ class Extract_from_json:
         rider_gap_delta = rider_gap - datetime(1900,1,1)
         rider_gap_seconds = rider_gap_delta.total_seconds()
         return (rider_gap_seconds + winning_time_seconds)/winning_time_seconds
+
+    def Get_Percentage_Of_Total_Time (self, id):
+        """
+        Returns % of total time
+        """
+        if(self.Get_Final_Result_Time(id) is NAN):
+            return "dnf"
+        else:
+            temp = str(self.Get_Final_Time_Gap(id))
+            hh, mm, ss = temp.split(':')
+            time_gap= int(hh)*3600 + int(mm)*60 + int(ss)
+        return (time_gap + self.tof_seconds)/self.tof_seconds
+
 
 
 """
