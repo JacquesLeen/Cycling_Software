@@ -9,12 +9,19 @@ from meteostat import Stations, Daily, Hourly
 import sys
 import json
 from datetime import datetime
+import pickle 
 
-sys.path.insert(0, r"C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_results") #/Users/giacomolini/Desktop/Cycling_Software/repo_results
+sys.path.insert(0, r"/Users/giacomolini/Desktop/Cycling_Software/repo_results") #C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_results
 import Extract_from_json
-sys.path.insert(0, r"C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_routes") #/Users/giacomolini/Desktop/Cycling_Software/repo_routes)
+sys.path.insert(0, r"/Users/giacomolini/Desktop/Cycling_Software/repo_routes") #C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_routes
 import Analyzer
 
+#Encodes DataFrames to Json without serialising issues
+class JSONEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if hasattr(obj, 'to_json'):
+            return obj.to_json(orient='records')
+        return json.JSONEncoder.default(self, obj)
 
 """
     it takes some 5 minutes to run the script for downloading the tracks and since we are testing the
@@ -74,19 +81,43 @@ for obj in track_num:
     routes_data.loc[len(routes_data)] = list_temp               ## add list to df
 
 routes_data.to_csv("Routes_Data.csv")
-
+"""
 json_name = 'repo_results/14.json' #set new json name if necessary or list over files
 
 EFJS = Extract_from_json.Extract_from_json(json_name)
 
-rider_data = pd.DataFrame(columns = [
+race_dict = {}
+for i in range(EFJS.Get_Number_Of_Stages()):
+    Stage_DF = pd.DataFrame(columns = [
+        'Race Name','Rider Name', 'Nation Code', 'Team ID',
+        'Team Name',  'Stage Result', 'Stage Time','Stage Gap', 
+        'Percentage of Winning Time'
+    ])
+    for rider in EFJS.Riders():
+        list_temp = []
+        list_temp.append(EFJS.Get_Race_Name() + ' Stage '+ str(i+1))
+        list_temp.append(EFJS.Get_Rider_Name(rider)), 
+        list_temp.append(EFJS.Get_Rider_Nation_Code(rider)), 
+        list_temp.append(EFJS.Get_Rider_Team_Id(rider)),
+        list_temp.append(EFJS.Get_Rider_Team_Name(rider)),
+        list_temp.append(EFJS.Get_Single_Stage_Result(rider, i+1)),
+        list_temp.append(EFJS.Get_Stage_Time(rider, i+1)),
+        list_temp.append(EFJS.Get_Single_Stage_Gap(rider, i+1 )),
+        list_temp.append(EFJS.Get_Percentage_Of_Winning_Time(rider, i+1)),
+        
+        Stage_DF.loc[len(Stage_DF)] = list_temp 
+    Stage_DF = Stage_DF.to_json()
+    race_dict['stage'+str(i+1)] = Stage_DF
+
+
+Overall_DF = pd.DataFrame(columns= [
     'Race Name','Rider Name', 'Nation Code', 'Team ID',
-    'Team Name', 'Final Result', 'Final Time Gap', 'Final Result Time',
-    'Stages Results', 'Stages Gaps', 'Finished Race'
+    'Team Name', 'Final Result', 'Final Time Gap','Final Result Time',
+    'Finished Race', 'Total Percentage of Time'
 ])
 for rider in EFJS.Riders():
     list_temp = []
-    list_temp.append(EFJS.Get_Race_Name())
+    list_temp.append(EFJS.Get_Race_Name() + ' Overall')
     list_temp.append(EFJS.Get_Rider_Name(rider)), 
     list_temp.append(EFJS.Get_Rider_Nation_Code(rider)), 
     list_temp.append(EFJS.Get_Rider_Team_Id(rider)),
@@ -94,20 +125,24 @@ for rider in EFJS.Riders():
     list_temp.append(EFJS.Get_Final_Result_Position(rider)),
     list_temp.append(EFJS.Get_Final_Time_Gap(rider)),
     list_temp.append(EFJS.Get_Final_Result_Time(rider)),
-    list_temp.append(EFJS.Get_Stages_Results(rider)),
-    list_temp.append(EFJS.Get_Stages_Gaps(rider)),
     list_temp.append(EFJS.Get_Finished_Race(rider)),
-    rider_data.loc[len(rider_data)] = list_temp 
-    
+    list_temp.append(EFJS.Get_Percentage_Of_Total_Time(rider))
+    Overall_DF.loc[len(Overall_DF)] = list_temp 
+Overall_DF= Overall_DF.to_json()
+race_dict['Overall'] = Overall_DF
 
-rider_data.to_csv("Riders_Data.csv")
-
-"""
+with open('Riders_Data.pkl', 'wb') as f:
+    pickle.dump(race_dict, f)
 
 ## NO NEED TO IMPORT THESE FILES IF YOU UNCOMMENTED ABOVE
 routes_data = pd.read_csv("Routes_Data.csv")
-rider_data = pd.read_csv("Riders_Data.csv")
+race_dict = pd.read_pickle('Riders_Data.pkl')
 
+print(routes_data)
+
+for stage in race_dict:
+    print(race_dict[stage])
+"""
 ##creates id for the races
 race_id = []
 
@@ -124,3 +159,4 @@ rider_data['STAGES ID'] = col_id
 
 
 print(rider_data)
+"""

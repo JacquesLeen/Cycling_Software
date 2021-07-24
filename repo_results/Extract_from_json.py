@@ -282,7 +282,25 @@ class Extract_from_json:
             time_gap= int(hh)*3600 + int(mm)*60 + int(ss)
         return (time_gap + self.tof_seconds)/self.tof_seconds
 
-
+    def Get_Stage_Time(self, id, stage_nr):
+        """
+        returns the stage time of the rider
+        """
+        time_of_winner = int(self.stages_winning_time[stage_nr-1])
+        if (self.Get_Single_Stage_Result(id, stage_nr) == 1):
+            return time_of_winner
+        elif(self.Get_Single_Stage_Result(id, stage_nr) == 'dnf'):
+            return 'dnf'
+        temp = str(self.Get_Single_Stage_Gap(id, stage_nr))
+        hh, mm, ss = temp.split(':')
+        time_gap= int(hh)*3600 + int(mm)*60 + int(ss)
+        time_gap = time_gap + time_of_winner
+        hh = str(time_gap // 3600)
+        time_gap = time_gap - int(hh)*3600
+        mm = str(time_gap // 60)
+        time_gap = time_gap - int(mm) * 60
+        ss = str(time_gap)
+        return hh+':'+mm +':'+ ss
 
 """
 with open(json_name) as json_file:
