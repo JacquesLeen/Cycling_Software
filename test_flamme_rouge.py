@@ -4,5 +4,8 @@ fl = FlammeRouge.flamme_rouge(years=[2021], months=['07'])
 
 df = fl.get_calendar()
 
-for track in df['race_track']:
-    print(fl.get_tracks(track))
+# using stored tracks:
+print(fl.get_tracks(fl.tracks[0]))
+
+# using random track
+print(fl.get_tracks(32324324))

@@ -5,11 +5,11 @@ from haversine import haversine
 
 
 class flamme_rouge:
-    def __init__(self, years=None, months=None, days=None, tracks=None):
+    def __init__(self, years, months):
         self.years = years
         self.months = months
-        self.days = days
-        self.tracks = tracks
+        self.days = None
+        self.tracks = None
 
     def get_calendar(self):
 
@@ -58,14 +58,14 @@ class flamme_rouge:
 
         df_racedays = pd.DataFrame(
             {'date': race_day, 'race_name': race_name, 'race_info': race_info, 'race_track': race_track})
+        self.tracks = race_track
         return df_racedays
 
 
-    def get_tracks(self, tracks):
+    def get_tracks(self, track):
         data_race = {}
-        self.tracks = tracks
         last_point = []
-        url = 'http://la-flamme-rouge.eu/maps/viewtrack/gpx/' + str(tracks)
+        url = 'http://la-flamme-rouge.eu/maps/viewtrack/gpx/' + str(track)
         headers = {'User-Agent': 'Mozilla/5'}
         r = requests.get(url, allow_redirects=True, headers=headers)
         soup = BeautifulSoup(r.text, 'html.parser')
