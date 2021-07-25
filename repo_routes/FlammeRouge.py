@@ -5,10 +5,11 @@ from haversine import haversine
 
 
 class flamme_rouge:
-    def __init__(self, years=[], months=[], days=[]):
+    def __init__(self, years=None, months=None, days=None, tracks=None):
         self.years = years
         self.months = months
         self.days = days
+        self.tracks = tracks
 
     def get_calendar(self):
 
@@ -62,38 +63,40 @@ class flamme_rouge:
 
     def get_tracks(self, tracks):
         data_race = {}
-        track = tracks
+        self.tracks = tracks
         last_point = []
         url = 'http://la-flamme-rouge.eu/maps/viewtrack/gpx/' + str(tracks)
         headers = {'User-Agent': 'Mozilla/5'}
         r = requests.get(url, allow_redirects=True, headers=headers)
         soup = BeautifulSoup(r.text, 'html.parser')
 
-        lat = []
-        lon = []
-        ele = []
-        for i in soup.find('trkseg').find_all('trkpt'):
-            lat.append(i['lat'])
-            lon.append(i['lon'])
-            ele.append(i.find('ele').text)
-        race_name = soup.find('name').text
-        elev_change = 0  ## sets elev_change = 0
-        distance = 0
-        max_elev = int(ele[0])  ## append last point (for weather data)
-        last_point = [float(lat[-1]), float(lon[-1])]
+        try:
+            lat = []
+            lon = []
+            ele = []
+            for i in soup.find('trkseg').find_all('trkpt'):
+                lat.append(i['lat'])
+                lon.append(i['lon'])
+                ele.append(i.find('ele').text)
+            race_name = soup.find('name').text
+            elev_change = 0  ## sets elev_change = 0
+            distance = 0
+            max_elev = int(ele[0])  ## append last point (for weather data)
+            last_point = [float(lat[-1]), float(lon[-1])]
 
-        for i in range(1, len(ele)):  ## loops through all elements
-            ## evaluate total elevation change
-            if (int(float(ele[i])) > int(float(ele[i - 1]))):  ## if this point is higher than previous
-                elev_change += int(float(ele[i])) - int(float(ele[i - 1]))  ## add the difference to elev_change
-                ## search for highest point in the race
-            if (int(float(ele[i])) > float(max_elev)):  ## if this point is higher than max_elev
-                max_elev = ele[i]  ## set max_elev to new value
-                ## haversine distance
-            begin = (float(lat[i]), float(lon[i]))
-            end = (float(lat[i - 1]), float(lon[i - 1]))
-            distance += haversine(end, begin)
-        ele = [int(float(x)) for x in ele]
-        data_race[race_name] = [elev_change, max_elev, distance, last_point]
-        return [data_race, ele]
-
+            for i in range(1, len(ele)):  ## loops through all elements
+                ## evaluate total elevation change
+                if (int(float(ele[i])) > int(float(ele[i - 1]))):  ## if this point is higher than previous
+                    elev_change += int(float(ele[i])) - int(float(ele[i - 1]))  ## add the difference to elev_change
+                    ## search for highest point in the race
+                if (int(float(ele[i])) > float(max_elev)):  ## if this point is higher than max_elev
+                    max_elev = ele[i]  ## set max_elev to new value
+                    ## haversine distance
+                begin = (float(lat[i]), float(lon[i]))
+                end = (float(lat[i - 1]), float(lon[i - 1]))
+                distance += haversine(end, begin)
+            ele = [int(float(x)) for x in ele]
+            data_race[race_name] = [elev_change, max_elev, distance, last_point]
+            return [data_race, ele]
+        except AttributeError:
+            print("No data available")

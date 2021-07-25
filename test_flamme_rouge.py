@@ -1,11 +1,8 @@
-from repo_routes import flamme_rouge
+from repo_routes import FlammeRouge
 
-fetcher = flamme_rouge.flamme_rouge(years=[2021], months=['07'])
+fl = FlammeRouge.flamme_rouge(years=[2021], months=['07'])
 
-df = fetcher.get_calendar()
+df = fl.get_calendar()
 
-total_tracks = []
 for track in df['race_track']:
-    total_tracks.append(fetcher.get_tracks(tracks=track))
-
-print(total_tracks)
+    print(fl.get_tracks(track))
