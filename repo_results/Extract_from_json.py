@@ -276,11 +276,13 @@ class Extract_from_json:
         """
         if(self.Get_Final_Result_Time(id) is NAN):
             return "dnf"
-        else:
+        elif(self.Get_Final_Result_Position != 1):
             temp = str(self.Get_Final_Time_Gap(id))
             hh, mm, ss = temp.split(':')
             time_gap= int(hh)*3600 + int(mm)*60 + int(ss)
-        return (time_gap + self.tof_seconds)/self.tof_seconds
+            return (time_gap + self.tof_seconds)/self.tof_seconds
+        else:
+            return 1.0
 
     def Get_Stage_Time(self, id, stage_nr):
         """

@@ -106,7 +106,6 @@ for i in range(EFJS.Get_Number_Of_Stages()):
         list_temp.append(EFJS.Get_Percentage_Of_Winning_Time(rider, i+1)),
         
         Stage_DF.loc[len(Stage_DF)] = list_temp 
-    Stage_DF = Stage_DF.to_json()
     race_dict['stage'+str(i+1)] = Stage_DF
 
 
@@ -128,7 +127,6 @@ for rider in EFJS.Riders():
     list_temp.append(EFJS.Get_Finished_Race(rider)),
     list_temp.append(EFJS.Get_Percentage_Of_Total_Time(rider))
     Overall_DF.loc[len(Overall_DF)] = list_temp 
-Overall_DF= Overall_DF.to_json()
 race_dict['Overall'] = Overall_DF
 
 with open('Riders_Data.pkl', 'wb') as f:
@@ -136,13 +134,8 @@ with open('Riders_Data.pkl', 'wb') as f:
 
 ## NO NEED TO IMPORT THESE FILES IF YOU UNCOMMENTED ABOVE
 routes_data = pd.read_csv("Routes_Data.csv")
-race_dict = pd.read_pickle('Riders_Data.pkl')
+#race_dict = pd.read_pickle("Riders_Data.pkl")
 
-print(routes_data)
-
-for stage in race_dict:
-    print(race_dict[stage])
-"""
 ##creates id for the races
 race_id = []
 
@@ -151,12 +144,39 @@ for i in routes_data['Race Name']:
 
 routes_data['ID'] = race_id
 
-col_id = [] ## list of lists of ids for the rider_df
-for x in range(len(rider_data['Nation Code'])):
-    col_id.append(race_id)
+counter = 0
+routes_data = routes_data[routes_data.columns.drop('Unnamed: 0')]
+routes_data = routes_data[routes_data.columns.drop('Race Name')]
 
-rider_data['STAGES ID'] = col_id
+race_final = {}
 
+for stage in race_dict:
+    if 'stage' in stage:
+        counter = counter +1
+        temp = pd.DataFrame(columns = [
+                            'RL', 'Elev', 'Elev/Km', 'TT', 'Ov1500m', 'Ov1800m', 'Ov2000m', 'UphFinish', 'HillFinish',
+                            'Quant0.25','Quant0.5', 'Quant0.6', 'Quant0.75', 'Quant0.8', 'Quant0.9', 'Quant0.95','PercFlat',
+                            'PercFF Up', 'PercFF Down', 'PercUp', 'PercDown', 'PercOv500m', 'PercOv1000m', 'PercOv1500m',
+                            'PercOv2000m', 'ID', #'Avg Temp', 'Avg Wind', 'mm Prec', 'Weather Code'
+                            ])
+        elem_to_add = list(routes_data.loc[counter-1])
+        for i in range(len(race_dict[stage])):
+            temp.loc[i]=elem_to_add
+        final = pd.concat([race_dict[stage], temp], axis=1, join= "inner")
+        race_final['Stage - '+str(stage)]= final
 
-print(rider_data)
-"""
+race_final['Overall']= race_dict['Overall']
+
+data_dict = {
+    key: race_final[key].to_dict(orient='records') 
+    for key in race_final.keys()
+}
+
+# write to disk
+with open('race_final.json', 'w') as fp:
+    json.dump(
+        data_dict, 
+        fp, 
+        indent=4, 
+        sort_keys=True
+    )
