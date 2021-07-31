@@ -1,6 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import gpxpy
 import matplotlib.pyplot as plt
 import numpy as np
 import os
@@ -11,9 +10,9 @@ import json
 from datetime import datetime
 import pickle 
 
-sys.path.insert(0, r"/Users/giacomolini/Desktop/Cycling_Software/repo_results") #C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_results
+#sys.path.insert(0, r"/Users/giacomolini/Desktop/Cycling_Software/repo_results") #C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_results
 import repo_results.Extract_from_json
-sys.path.insert(0, r"/Users/giacomolini/Desktop/Cycling_Software/repo_routes") #C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_routes
+#sys.path.insert(0, r"/Users/giacomolini/Desktop/Cycling_Software/repo_routes") #C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_routes
 import repo_routes.Analyzer
 
 #Encodes DataFrames to Json without serialising issues

@@ -97,6 +97,7 @@ class flamme_rouge:
                 distance += haversine(end, begin)
             ele = [int(float(x)) for x in ele]
             data_race[race_name] = [elev_change, max_elev, distance, last_point]
-            return [data_race, ele]
+            #return [data_race, ele]
+            return data_race, ele
         except AttributeError:
             print("No data available")
