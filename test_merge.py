@@ -12,9 +12,9 @@ from datetime import datetime
 import pickle 
 
 sys.path.insert(0, r"/Users/giacomolini/Desktop/Cycling_Software/repo_results") #C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_results
-import Extract_from_json
+import repo_results.Extract_from_json
 sys.path.insert(0, r"/Users/giacomolini/Desktop/Cycling_Software/repo_routes") #C:\Users\igord\Documents\PyCycling\Cycling_Software\repo_routes
-import Analyzer
+import repo_routes.Analyzer
 
 #Encodes DataFrames to Json without serialising issues
 class JSONEncoder(json.JSONEncoder):
