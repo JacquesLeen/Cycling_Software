@@ -74,6 +74,7 @@ class flamme_rouge:
             lat = []
             lon = []
             ele = []
+            #race_data = {}
             for i in soup.find('trkseg').find_all('trkpt'):
                 lat.append(i['lat'])
                 lon.append(i['lon'])
@@ -96,8 +97,10 @@ class flamme_rouge:
                 end = (float(lat[i - 1]), float(lon[i - 1]))
                 distance += haversine(end, begin)
             ele = [int(float(x)) for x in ele]
-            data_race[race_name] = [elev_change, max_elev, distance, last_point]
-            #return [data_race, ele]
-            return data_race, ele
+            data_race[track] = [elev_change, max_elev, distance, last_point]
+            return [data_race, ele]
+            #race_data[track] = [[elev_change, max_elev, distance, last_point], ele]
+            #return data_race, ele
+            #return race_data
         except AttributeError:
             print("No data available")
