@@ -50,7 +50,10 @@ route_df['race_track'] = route_df['race_track'].astype(int)
 print(df.merge(route_df, on='race_track'))
 
 # test fuzzy match race results with route data
-print(fuzzy_merge(stage_1, df, 'Race Name', 'race_name', threshold=80))
+merged_df_fuzzy = fuzzy_merge(stage_1, df, 'Race Name', 'race_name', threshold=90)
+merged_df = merged_df_fuzzy.merge(df, left_on='matches', right_on='race_name').drop(columns=['matches']).\
+    merge(route_df, on ='race_track')
+merged_df.to_csv('test_merged.csv')
 
 
 
