@@ -128,3 +128,40 @@ class FirstCycling:
         df_teams.drop(columns=['team_link'], inplace=True)
 
         return df_teams
+
+    def get_riders(self, team_id):
+        team_url = "https://firstcycling.com/team.php?l="+str(team_id)+"&riders=2"
+        soup = BeautifulSoup(requests.get(team_url).text,'lxml')
+        tables = soup.find_all('table', class_='sortTabell')
+        for table in tables:
+            table_body = table.find('tbody')
+            rows = table_body.find_all('tr')
+            names = []
+            age =[]
+            nationalities=[]
+            racedays =[]
+            racekm=[]
+            riders_id = []
+    
+            #get the riders' ID from the html file parsing
+            riders_href =list(soup.select('a[href^="rider.php"]'))
+            tags =[]
+            for tag in riders_href:
+                tags.append( str(tag) )
+            for tag in tags:
+                start = tag.find('rider.php?r=')+len('rider.php?r=')
+                end = tag.find('&amp')
+                riders_id.append(tag[start:end])
+    
+            #get riders info from the html
+            for row in rows:
+                cols = row.find_all('td')
+                cols = [ele.text.strip() for ele in cols]
+                names.append(cols[0])
+                age.append(cols[2])
+                nationalities.append(cols[3])
+                racedays.append(cols[8])
+                racekm.append(cols[9])
+        df_riders = pd.DataFrame(list(zip(names, age, nationalities,racedays,racekm, riders_id)),
+            columns =['Name', 'Age', 'Nationality', 'Race Days', 'Race Km','ID'])
+        return df_riders
