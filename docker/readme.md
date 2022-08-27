@@ -17,3 +17,7 @@ I everything runs smoothly, you should have your database up and running withing
 ## Pushing data to the DB
 
 Since you know the credentials to the DB, it is easy to generate a connection string using `SQLAlchemy` and pushing some data through `pandas`. Run the code in `load_to_db_example.py` to fill the tables in the DB with dummy data.
+
+## Stop the project
+
+Go back to your terminal and input `docker-compose down` to stop the running containers.
