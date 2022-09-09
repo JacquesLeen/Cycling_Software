@@ -6,7 +6,12 @@ import numpy as np
 import os
 import pandas as pd
 from datetime import datetime
-from meteostat import Stations, Hourly, Daily
+import csv
+import codecs
+import urllib.request
+import urllib.error
+import sys
+
 
 class Analyzer:
     def __init__(self, track_number = []):
@@ -21,7 +26,7 @@ class Analyzer:
         The parsed URLs as a list
         """
         soup = []
-        print(self.t_n)
+        #print(self.t_n)
         for track in self.t_n:
             url = 'http://la-flamme-rouge.eu/maps/viewtrack/gpx/'+str(track)
             headers={'User-Agent':'Mozilla/5'}
@@ -61,12 +66,15 @@ class Analyzer:
         Returns
         ------------
         void
-        """
+        
+        print(type(self.t_n))
+        print(self.t_n)
         for track in self.t_n:
-            url = 'http://la-flamme-rouge.eu/maps/viewtrack/gpx/'+str(track)
-            headers={'User-Agent':'Mozilla/5'}
-            r = requests.get(url, allow_redirects=True,headers=headers)
-            open('gpx/'+str(track)+'.gpx', 'wb').write(r.content)
+        """
+        url = 'http://la-flamme-rouge.eu/maps/viewtrack/gpx/'+str(self.t_n)
+        headers={'User-Agent':'Mozilla/5'}
+        r = requests.get(url, allow_redirects=True,headers=headers)
+        open('gpx/'+str(self.t_n)+'.gpx', 'wb').write(r.content)
 
     def get_data_from_gpx(self):
         """Extract stage name elevation, max elevation and distance as well as last point from the gpx files
@@ -406,7 +414,7 @@ class Analyzer:
                 temp.append(i)
         return round(len(temp)/len(data),3)
 
-    def get_weather_data(self):
+    def get_weather_data(self, date='2019-09-29'):
         """
         Determines some weather data (metereological station closest to the final point) on the
         day of the race
@@ -421,25 +429,104 @@ class Analyzer:
         """
         latitude = list(self.data[0].values())[0][3][0]
         longitude = list(self.data[0].values())[0][3][1]
-        stations = Stations()
-        stations = stations.nearby(latitude, longitude)
-        station = stations.fetch(3)
-        race_date_start = datetime(2018,10,10, 9, 00)
-        race_date_daily = datetime(2018,10,10)
-        race_date_end = datetime(2018,10,10, 17,00)
-        data = Hourly(station, start=race_date_start, end=race_date_end)
-        data_daily = Daily(station, start=race_date_daily, end=race_date_daily)
-        data = data.normalize()
-        data = data.interpolate(9)
-        data = data.aggregate('9H')
-        data_daily = data_daily.normalize()
-        df_daily = pd.DataFrame(data_daily.fetch().values)
-        df =  pd.DataFrame(data.fetch().values)
-        df[0] = df[0].fillna(df[0].mean())
-        df[6] = df[6].fillna(df[6].mean())
-        df[3] = df_daily[3].fillna(df_daily[3].mean()).fillna(0.0)
-        df[10] = df[10].fillna(method="ffill").fillna(method="bfill")
+
+        BaseURL = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/'
+
+        ApiKey='5DKM32326GJWXTEAASSUPZZGX'
+
+        UnitGroup= 'metric'
+
+        Location = str(latitude) +','+str(longitude) # can be specified as a set of lat and lon coordinates, address, partial address
+        #JSON or CSV 
+        #JSON format supports daily, hourly, current conditions, weather alerts and events in a single JSON package
+        #CSV format requires an 'include' parameter below to indicate which table section is required
+        ContentType="csv"
+
+        #if not specified start and end date, then a random day in the past or future gets returned, format is YYYY-MM-DD
+        StartDate = date
+        EndDate=''
+
+        #include sections
+        #values include days,hours,current,alerts
+        Include="days"
+
+        ApiQuery = BaseURL+ Location
+        if(len(StartDate)):
+            ApiQuery+= "/"+StartDate
+            if (len(EndDate)):
+                ApiQuery+= "/"+EndDate
+
+        ApiQuery+="?" #from here on we add the query parameters
+        if(len(UnitGroup)):
+            ApiQuery+="&unitGroup="+UnitGroup
+
+        if(len(ContentType)):
+            ApiQuery+="&contentType="+ContentType
+
+        if(len(Include)):
+            ApiQuery+="&include="+Include
+
+        ApiQuery+="&key="+ApiKey
+
+        #print(' - Running query URL: ', ApiQuery)
+        #print()
+
+        try: 
+            CSVBytes = urllib.request.urlopen(ApiQuery)
+        except urllib.error.HTTPError  as e:
+            ErrorInfo= e.read().decode() 
+            print('Error code: ', e.code, ErrorInfo)
+            sys.exit()
+        except  urllib.error.URLError as e:
+            ErrorInfo= e.read().decode() 
+            print('Error code: ', e.code,ErrorInfo)
+            sys.exit()
+
+        CSVText = csv.reader(codecs.iterdecode(CSVBytes, 'utf-8'))
+        RowIndex = 0
+        # The first row contain the headers and the additional rows each contain the weather metrics for a single day
+        # To simply our code, we use the knowledge that column 0 contains the location and column 1 contains the date.  The data starts at column 4
+        df = pd.DataFrame(columns=[
+            'Max Temperature', 'Min Temperature', 'Temperature', 'Max Feelslike', 'Min Feelslike', 'Feelslike', 'Dew Point', 'Humidity','Precipitation', 'Precip Prob', 'Precip Cover', 'Precip Type',
+            'Snow', 'Snow depth', 'Wind Gust', 'Wind Speed', 'Wind Direction', 'Sea Level Pressure', 'Cloud Cover', 'Visibility', 'Solar Radiation', 'Solar Energy','UV Index', 'Severe Risk', 'Sunrise', 'Sunset', 
+            'Moon Phase', 'Conditions', 'Description','Icon', 'Stations'
+        ])
+        for Row in CSVText:
+
+            if RowIndex == 0:
+                FirstRow = Row
+            else:
+                to_append = []
+                ColIndex = 0
+                for Col in Row:
+                    if ColIndex >= 2:
+                        to_append.append(Row[ColIndex]) 
+                        #print(len(to_append))
+                    ColIndex += 1
+                    
+                df.loc[len(df)] = to_append
+            RowIndex += 1
+
         return df
+        """     stations = Stations()
+                stations = stations.nearby(latitude, longitude)
+                station = stations.fetch(3)
+                race_date_start = datetime(2018,10,10, 9, 00)
+                race_date_daily = datetime(2018,10,10)
+                race_date_end = datetime(2018,10,10, 17,00)
+                data = Hourly(station, start=race_date_start, end=race_date_end)
+                data_daily = Daily(station, start=race_date_daily, end=race_date_daily)
+                data = data.normalize()
+                data = data.interpolate(9)
+                data = data.aggregate('9H')
+                data_daily = data_daily.normalize()
+                df_daily = pd.DataFrame(data_daily.fetch().values)
+                df =  pd.DataFrame(data.fetch().values)
+                df[0] = df[0].fillna(df[0].mean())
+                df[6] = df[6].fillna(df[6].mean())
+                df[3] = df_daily[3].fillna(df_daily[3].mean()).fillna(0.0)
+                df[10] = df[10].fillna(method="ffill").fillna(method="bfill")"""
+
 
 
 
