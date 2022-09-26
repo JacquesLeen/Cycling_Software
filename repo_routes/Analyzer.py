@@ -109,7 +109,7 @@ class Analyzer:
             if(int(float(ele[i]))>int(float(ele[i-1]))):                          ## if this point is higher than previous 
                 elev_change += int(float(ele[i]))-int(float(ele[i-1]))            ## add the difference to elev_change
                         ## search for highest point in the race
-            if(int(float(ele[i])) > int(max_elev)):                        ## if this point is higher than max_elev
+            if(int(float(ele[i])) > int(float(max_elev))):                        ## if this point is higher than max_elev
                 max_elev=ele[i]                                     ## set max_elev to new value
                         ## haversine distance
             begin = (float(lat[i]), float(lon[i]))
@@ -149,7 +149,7 @@ class Analyzer:
         determines whether the race got over 1500m of altitude
         """
         data = self.data
-        if int(list(data[0].values())[0][1]) >= 1500:
+        if float(list(data[0].values())[0][1]) >= 1500:
             return True
         return False
     
@@ -158,7 +158,7 @@ class Analyzer:
         determines whether the race got over 2000m of altitude
         """
         data = self.data
-        if int(list(data[0].values())[0][1]) >= 1800:
+        if float(list(data[0].values())[0][1]) >= 1800:
             return True
         return False
 
@@ -167,7 +167,7 @@ class Analyzer:
         determines whether the race got over 2000m of altitude
         """
         data = self.data
-        if int(list(data[0].values())[0][1]) >= 2000:
+        if float(list(data[0].values())[0][1]) >= 2000:
             return True
         return False
 
@@ -196,6 +196,7 @@ class Analyzer:
         """
         data = self.data
         waypoint = int( distance * len(data[1]) / self.get_distance() ) 
+
         return data[1][waypoint-1]
 
     def is_uphill_finish(self)->bool:
@@ -210,15 +211,18 @@ class Analyzer:
         Bool
         """
         finish = self.get_distance()
-        if int(self.get_altitude(finish)) - int(self.get_altitude(finish -5)) >=200:
-            return True
-        else:
+        try:
+            if int(self.get_altitude(finish)) - int(self.get_altitude(finish -4)) >=160:
+                return True
+            else:
+                return False
+        except:
             return False
 
     def is_hilly_finish(self)->bool:
         """
-        Determines whether a gpx track can be classified as (uphill finish) UF or not.
-        In order to be a UF the criteria that must be met is the following (can be modified)
+        Determines whether a gpx track can be classified as (hilly finish) HF or not.
+        In order to be a HF the criteria that must be met is the following (can be modified)
         -in the last 0.5 km of the race there has to be an average gradient of at least 5%
         -that means at least 25m of elevation    
 
